@@ -1,5 +1,5 @@
 do 
-local function moody(msg, matches) 
+local function run(msg, matches) 
 
 if is_silent_user(msg.from.id, msg.to.id) then return end
 
@@ -27,7 +27,7 @@ end end end
 ---------------[bot out]---------------------------
 
 if w==bot_name and ww== 'غادر' and is_sudo(msg) then
-tdcli.sendMessage(msg.to.id, msg.id, 1, 'اوك باي 😢💔👮🏻‍♀️', 1, 'html')
+tdcli.sendMessage(msg.to.id, msg.id, 1, 'اوك باي 😢💔🖇', 1, 'html')
 botrem(msg)
 end   
 -------[/start and welcom and save user id ]-----------
@@ -43,29 +43,29 @@ return [[🚸┇ مرحبا انا 🎖
 🚸┇ المطور فقط يستطيع تفعيلي في المجموعات ⇩⇩
 🚸┇ او اترك رسالتك هنا وسوف يرد عليك المطور
 🚸┇ مطور البوت : ]]..check_markdown(sudouser)..[[
-
 👨🏽‍🔧]]
 end
 
 
+
 ---------------[End Function data] -----------------------
 if w=="اضف رد" then
-if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 👮🏻‍♀️" end
+if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
 
 redis:set('witing',true)
 redis:del('replay1')
 redis:del('replay2')
 
-return "🚸┇ _حسنآ الان ارسل كلمة الرد _🍃\n"
+return "📭¦ _حسنآ الان ارسل كلمة الرد _🍃\n"
 end
 
 if w=="اضف رد للكل" then
-if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط 🚸┇" end
+if tonumber(msg.from.id) ~= tonumber(SUDO) then return "🚸┇ هذا الاوامر للمطور الاساسي فقط 🌑" end
 redis:set('witing2',true)
 redis:del('allreplay1')
 redis:del('allrepaly2')
 
-return "🚸┇ _حسنآ الان ارسل كلمة الرد العام _🍃\n"
+return "📭¦ _حسنآ الان ارسل كلمة الرد العام _🍃\n"
 end
 
 if msg.text then
@@ -73,7 +73,7 @@ if msg.text then
 if redis:get("witing2") and is_owner(msg) then
 if  not redis:get('allreplay1') then
 redis:set('allreplay1',msg.text)
-return "🚸┇ _شكرأ لك 😻_\n🚸┇ _الان ارسل جواب الرد _☑️" 
+return "🚸┇ _شكرأ لك 😻_\n 🚸┇ _الان ارسل جواب الرد _☑️" 
 end
 if redis:get('allreplay1') then
   redis:set('allrepaly2',msg.text)
@@ -91,7 +91,7 @@ end
 if redis:get("witing") and is_owner(msg) then
 if  not redis:get('replay1') then
 redis:set('replay1',msg.text)
-return "🚸┇ _شكرأ لك 😻_\n🚸┇ _الان ارسل جواب الرد _☑️" 
+return "🚸┇ _شكرأ لك 😻_\n 🚸┇ _الان ارسل جواب الرد _☑️" 
 end
 if redis:get('replay1') then
   redis:set('replay2',msg.text)
@@ -105,10 +105,10 @@ end
 
 
 if w == 'مسح الردود' then
-if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 👮🏻‍♀️" end
+if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
 
 if next(data[tostring(msg.to.id)]['replay']) == nil then
-return  " عذراً 🌝".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".." 🗯قائمة الردود فارغة بالفعل 👮🏻‍♀️ "
+return  " عذراً 🌝".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".." 🗯قائمة الردود فارغة بالفعل 🖇 "
 else
 for k,v in pairs(data[tostring(msg.to.id)]['replay']) do
 data[tostring(msg.to.id)]['replay'][tostring(k)] = nil
@@ -119,10 +119,10 @@ end
 end
 
 if w == 'مسح الردود العامه' then
-if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 👮🏻‍♀️" end
+if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
 
 if next(data['replay_all']) == nil then
-return  " عذراً 🌝".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".." 🗯قائمة الردود العامه فارغة بالفعل 👮🏻‍♀️ "
+return  " عذراً 🌝".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".." 🚸┇ قائمة الردود العامه فارغة بالفعل 🖇 "
 else
 for k,v in pairs(data['replay_all']) do
 data['replay_all'][tostring(k)] = nil
@@ -133,10 +133,10 @@ end
 end
 
 if w == 'مسح رد عام' then
-if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 👮🏻‍♀️" end
+if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
 
 if not data['replay_all'][ww] then
-return '🗯هذا الرد ليش مضاف في قائمه الردود 👮🏻‍♀️'
+return '🚸┇ هذا الرد ليش مضاف في قائمه الردود 🖇'
 else
 data['replay_all'][ww] = nil
 save_data(_config.moderation.data, data)
@@ -145,10 +145,10 @@ end
 end
 
 if w == 'مسح رد' then
-if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 👮🏻‍♀️" end
+if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
 
 if not data[tostring(msg.to.id)]['replay'][ww] then
-return '🗯هذا الرد ليش مضاف في قائمه الردود 👮🏻‍♀️'
+return '🚸┇ هذا الرد ليش مضاف في قائمه الردود 🖇'
 else
 data[tostring(msg.to.id)]['replay'][ww] = nil
 save_data(_config.moderation.data, data)
@@ -164,7 +164,7 @@ if next(data[tostring(msg.to.id)]['replay']) ==nil then
 return '🚸┇ لايوجد ردود مضافه حاليا ❗️'
 else
 local i = 1
-local message = '💢 ردود البوت في المجموعه  👮🏻‍♀️\n\n'
+local message = '🚸┇ ردود البوت في المجموعه  🖇\n\n'
 for k,v in pairs(data[tostring(msg.to.id)]['replay']) do
 message = message ..i..' - ('..k..') \n'
 i = i + 1
@@ -178,7 +178,7 @@ if next(data['replay_all']) ==nil then
 return '🚸┇ لايوجد ردود مضافه حاليا ❗️'
 else
 local i = 1
-local message = '💢 ردود العامه في البوت  👮🏻‍♀️\n\n'
+local message = '🚸┇ ردود العامه في البوت  🖇\n\n'
 for k,v in pairs(data['replay_all']) do
 message = message ..i..' - ('..k..') \n'
 i = i + 1
@@ -189,9 +189,10 @@ end
 end
 
 
+
 --------------------[Test Bot]----------------------------
 if w =="تيست" then
-return "👮🏻‍♀️ البوت شـغــال 🚀"
+return "🖇 البوت شـغــال 🚀"
 elseif w == "اسمي" then
 return  "\n" ..msg.from.first_name.."\n" 
 elseif w == "معرفي" then
@@ -217,7 +218,7 @@ rank = 'مجرد عضو 😹'
 end
 tdcli.sendPhoto(msg.chat_id_, msg.id_, 0, 1, nil, data.photos_[0].sizes_[1].photo_.persistent_id_,"",dl_cb,nil)
 else
-tdcli.sendMessage(msg.to.id, msg.id_, 1, "🚸┇لا يوجد صوره في بروفايلك ...", 1, 'md')
+tdcli.sendMessage(msg.to.id, msg.id_, 1, "🚸┇ لا يوجد صوره في بروفايلك ...", 1, 'md')
 end end
 tdcli_function ({ID = "GetUserProfilePhotos",user_id_ = msg.from.id,offset_ = 0,limit_ = 1}, getpro, nil)
 elseif w=="اريد رابط الحذف" or w=="اريد رابط حذف" or w=="رابط حذف" or w=="رابط الحذف" then
@@ -227,7 +228,7 @@ return [[
 🚸┇ - https://telegram.org/deactivate
 ]] 
 elseif w== 'ايدي' and msg.to.type == 'pv' then
-return "🚸┇ ايدي البوت : "..msg.to.id.. "\n\n🚸┇ ايدي حسابك : "..msg.from.id.. "\n مـطـور الـسـورس\n الزعيم محمد > @TH3BOSS 🚸┇ "
+return "🚸┇    ايدي البوت : "..msg.to.id.. "\n\n 🚸┇    ايدي حسابك : "..msg.from.id.. "\n مـطـور الـسـورس\n الزعيم محمدس  > @TH3BOSS 🚸┇ "
 elseif w=="رتبتي" then
 local rank
 if is_sudo(msg) then
@@ -246,8 +247,8 @@ end
 ------------[lock and unlock reply in pv ]---------
 
 if (msg.to.type == "pv") and not is_sudo(msg) then
-tdcli.sendMessage(msg.to.id, 0, 1, " 🚸┇ TH3BOSS  \n\n 🚸┇ @TH3BOSS\n🚸┇ @lBOSSl", 1, 'html')
-local pvmsg ="🚸┇ألاسم :"..name_user.."\n🚸┇الايدي : ["..msg.from.id.."]\n🚸┇ألمعرف : ["..usernamex.."]\n 🗯الرسالة: \n\n"..msg.text
+tdcli.sendMessage(msg.to.id, 0, 1, " 🚸┇ TEAM TH3BOSS V22 \n\n🔹 🚸┇DEV : @TH3BOSS\n 🚸┇DEV BOT : @TH3BOSSBOT", 1, 'html')
+local pvmsg ="🚸┇ ألاسم :"..name_user.."\n 🚸┇ الايدي : ["..msg.from.id.."]\n 🚸┇ ألمعرف : ["..usernamex.."]\n 🚸┇ الرسالة: \n\n"..msg.text
 
 tdcli.sendMessage(SUDO, 0, 1, pvmsg, 1, 'md')
 
@@ -269,7 +270,7 @@ local  ss97 = {
 "عيونه 👀 وخشمه 👃🏻واذانه👂🏻",
 "باقي ويتمدد 😎",
 "ها حبي 😍",
-"ها محمدي 🌹",
+"ها عمري 🌹",
 "اجيت اجيت كافي لتصيح 🌚👌",
 "هياتني اجيت 🌚❤️",
 "نعم حبي 😎",
@@ -289,7 +290,7 @@ local  ss97 = {
 "راجع المكتب حبيبي عبالك "..bot_name.." سهل تحجي ويا 😒",
 "ياعيون "..bot_name.." أمرني 😍",
 "لك دبدل ملابسي اطلع برااااا 😵😡 ناس متستحي",
-"سويت هواي شغلات سخيفه بحياتي بس محمدي مصحت على واحد وكلتله انجب 😑",
+"سويت هواي شغلات سخيفه بحياتي بس عمري مصحت على واحد وكلتله انجب 😑",
 "مشغول ويا ضلعتي  ☺️",
 "مازا تريد منه 😌🍃",
 
@@ -334,7 +335,7 @@ local song = {
 "اي مو كدامك مغني قديم 😒🎋 هوه ﴿↜ انـِۨـۛـِۨـۛـِۨيـُِـٌِہۧۥۛ ֆᵛ͢ᵎᵖ ⌯﴾❥  ربي كامز و تكلي غنيلي 🙄😒🕷 آإرۈحُـ✯ـہ✟  😴أنــ💤ــااااام😴  اشرف تالي وكت يردوني اغني 😒☹️🚶",
 "لا تظربني لا تظرب 💃💃 كسرت الخيزارانه💃🎋 صارلي سنه وست اشهر💃💃 من ظربتك وجعانه🤒😹",
 "موجوع كلبي😔والتعب بية☹️من اباوع على روحي😢ينكسر كلبي عليه😭",
-"ايامي وياها👫اتمنا انساها😔متندم اني حيل😞يم غيري هيه💃تضحك😂عليه😔مقهور انام الليل😢كاعد امسح بل رسائل✉️وجان اشوف كل رسايلها📩وبجيت هوايه😭شفت احبك😍واني من دونك اموت😱وشفت واحد 🚶صار هسه وياية👬اني رايدها محمد محمد تعرفني كل زين🙈 وماردت لا مصلحة ولاغايه😕والله مافد يوم بايسها💋خاف تطلع🗣البوسه💋وتجيها حجايه😔️",
+"ايامي وياها👫اتمنا انساها😔متندم اني حيل😞يم غيري هيه💃تضحك😂عليه😔مقهور انام الليل😢كاعد امسح بل رسائل✉️وجان اشوف كل رسايلها📩وبجيت هوايه😭شفت احبك😍واني من دونك اموت😱وشفت واحد 🚶صار هسه وياية👬اني رايدها عمر عمر تعرفني كل زين🙈 وماردت لا مصلحة ولاغايه😕والله مافد يوم بايسها💋خاف تطلع🗣البوسه💋وتجيها حجايه😔️",
 "😔صوتي بعد مت سمعه✋يال رايح بلا رجعة🚶بزودك نزلت الدمعة ذاك اليوم☝️يال حبيتلك ثاني✌روح وياه وضل عاني😞يوم اسود علية اني🌚 ذاك اليوم☝️تباها بروحك واضحك😂لان بجيتلي عيني😢😭 وافراح يابعد روحي😌خل الحركة تجويني😔🔥صوتي بعد متسمعة🗣✋",
 
 
@@ -346,7 +347,7 @@ local sound = {
 "data/audio/mozeka.ogg"
 }
 local function sudoname(ww)
-if string.match(ww, 'محمد')  or  string.match(ww, 'حموش') or  string.match(ww, 'حمودي') or  string.match(ww, 'حمود')  or string.match(ww, 'حموشي') then
+if string.match(ww, 'محمد')  or  string.match(ww, 'حموش') or  string.match(ww, 'حمودي') or  string.match(ww, 'حمود')  or string.match(ww, 'حموش') then
 return true
 else
 return false
@@ -389,17 +390,17 @@ tdcli.sendMessage(msg.to.id, msg.reply_id, 1, 'يا ول شو طالعة عين�
 end
 elseif w == "بوس" and ww then 
 if sudoname(ww) then
-return " امممح حمودي هذا العشق😻💋"
+return " امممح عـﮩـموري┇🎵™ هذا العشق😻💋"
 else
 if msg.reply_id then
 return  bs[math.random(#bs)] 
 else
-return "🚸┇ وينه بله سويله رد 🕵🏻"
+return "📌 وينه بله سويله رد 🕵🏻"
 end
 end
 elseif w == "تحب" and ww then
 if sudoname(ww) then
-return "اموت عليةة حمودي هذا العشق😻💋"
+return "اموت عليةة حمودي┇🎵™ هذا العشق😻💋"
 else
 return  thb[math.random(#thb)] 
 end
@@ -415,12 +416,12 @@ elseif not is_sudo(msg) and w == "احبك" or w=="حبك" then
 return  lovm[math.random(#lovm)]  
 elseif not is_sudo(msg) and w == "تحبني" then
 return  lovm[math.random(#lovm)]  
-elseif w== "ڤير"  then
+elseif w== "زعيم"  then
 return  ss97[math.random(#ss97)]  
 elseif w== "غني" or w=="غنيلي" then
 return  song[math.random(#song)] 
 elseif w=="اتفل" or w=="تفل" then
-if is_mod(msg) then return 'ختفوووووووووو💦💦️️' else return "🚸┇ انجب ما اتفل عيب 😼🙌🏿" end
+if is_mod(msg) then return 'ختفوووووووووو💦💦️️' else return "📌 انجب ما اتفل عيب 😼🙌🏿" end
 elseif w== "تف" then
 return  "عيب ابني/بتي اتفل/ي اكبر منها شوية 😌😹"
 elseif w== "شلونكم" or w== "شلونك" or w== "شونك" or w== "شونكم"   then
@@ -430,9 +431,9 @@ return  "اووويلي يابه 😍❤️ دزلي صورتهه 🐸💔"
 elseif w== "وينك"  then
 return   "دور بكلبك وتلكاني 😍😍❤️"
 elseif w== "منورين"  then
-return  "من نورك محمدي ❤️🌺"
+return  "من نورك عمري ❤️🌺"
 elseif w== "هاي"  then
-return  "هايات محمدي 😍🍷"
+return  "هايات عمري 😍🍷"
 elseif w== "🙊"  then
 return  "فديت الخجول 🙊 😍"
 elseif w== "😢"  then
@@ -569,7 +570,7 @@ elseif w== "حبيبتي"  then
 return  "تحبك وتحب عليك 🌝🌷"
 elseif w== "حياتي"  then
 return  "ها حياتي 😍🌿"
-elseif w== "محمدي"  then
+elseif w== "عمري"  then
 return  "خلصته دياحه وزحف 🌝🌿 "
 elseif w== "اسكت"  then
 return  "وك معلم 🌚💞"
@@ -600,7 +601,7 @@ elseif w == "اضحك" then
 --send_document(get_receiver(msg), funstickers[math.random(#funstickers)], ok_cb, false)
 elseif w == ""..bot_name.." عفط" and ww and msg.reply_id and is_sudo(msg) then
 if msg.reply_id then
-return tdcli.sendVoice(msg.chat_id_, msg.reply_id, 0, 1, nil, 'data/audio/zeg.ogg', nil, nil, '💢اسمع الزيج  اسمع 🔊')
+return tdcli.sendVoice(msg.chat_id_, msg.reply_id, 0, 1, nil, 'data/audio/zeg.ogg', nil, nil, '🚸┇ اسمع الزيج  اسمع 🔊')
 end
 elseif w == ""..bot_name.." بوس" and ww and msg.reply_id and is_sudo(msg) then
 if msg.reply_id then
@@ -647,6 +648,6 @@ patterns = {
 "^(مسح رد) (.*)$",
 "(.*)" 
 },
-run = moody,
+run = run,
 }
 end
