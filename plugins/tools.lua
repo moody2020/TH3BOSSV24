@@ -226,13 +226,13 @@ else
 user_name = check_markdown(data.first_name_)
 end
 if already_sudo(tonumber(data.id_)) then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ انه بالتأكيد مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ انه بالتأكيد مطور ☑️_', 0, "md")
 end
 table.insert(_config.sudo_users, {tonumber(data.id_), user_name})
 
 save_config()
 reload_plugins(true)
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ تم ترقيته ليصبح مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ تم ترقيته ليصبح مطور ☑️_', 0, "md")
 end
 tdcli_function ({
 ID = "GetUser",
@@ -249,13 +249,13 @@ end
 local nameid = index_function(tonumber(data.id_))
 
 if not already_sudo(data.id_) then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ انه بالتأكيد ليس مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ انه بالتأكيد ليس مطور ☑️_', 0, "md")
 end
 table.remove(_config.admins, nameid)
 
 save_config()
 reload_plugins(true) 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ تم تنزيله من المطورين ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ تم تنزيله من المطورين ☑️_', 0, "md")
 end
 tdcli_function ({
 ID = "GetUser",
@@ -278,16 +278,16 @@ user_name = check_markdown(data.title_)
 end
 if cmd == "رفع مطور" then
 if already_sudo(tonumber(data.id_)) then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ انه بالتأكيد مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ انه بالتأكيد مطور ☑️_', 0, "md")
 end
 table.insert(_config.sudo_users, {tonumber(data.id_), user_name})
 save_config()
 reload_plugins(true)
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ تم ترقيته ليصبح مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ تم ترقيته ليصبح مطور ☑️_', 0, "md")
 end
 if cmd == "تنزيل مطور" then
 if not already_sudo(data.id_) then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ انه بالتأكيد ليس مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ انه بالتأكيد ليس مطور ☑️_', 0, "md")
 end
 local nameid = index_function(tonumber(data.id_))
 
@@ -296,7 +296,7 @@ table.remove(_config.sudo_users, nameid)
 --table.remove(_config.sudo_users, getindex( _config.sudo_users, tonumber(data.id_)))
 save_config()
 reload_plugins(true) 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ تم تنزيله من المطورين ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ تم تنزيله من المطورين ☑️_', 0, "md")
 end
 else
 return tdcli.sendMessage(arg.chat_id, "", 0, "_🚸║  لا يوجد _", 0, "md")
@@ -315,23 +315,23 @@ end
 
 if cmd == "رفع مطور" then
 if already_sudo(tonumber(data.id_)) then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ انه بالتأكيد مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ انه بالتأكيد مطور ☑️_', 0, "md")
 end
 table.insert(_config.sudo_users, {tonumber(data.id_), user_name})
 save_config()
 reload_plugins(true)
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ تم ترقيته ليصبح مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ تم ترقيته ليصبح مطور ☑️_', 0, "md")
 end
 if cmd == "تنزيل مطور" then
 local nameid = index_function(tonumber(data.id_))
 
 if not already_sudo(data.id_) then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ انه بالتأكيد ليس مطور ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ انه بالتأكيد ليس مطور ☑️_', 0, "md")
 end
 table.remove(_config.sudo_users, nameid)
 save_config()
 reload_plugins(true) 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..user_name..'*\n🚸║_ تم تنزيله من المطورين ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ تم تنزيله من المطورين ☑️_', 0, "md")
 end
 else
 return tdcli.sendMessage(arg.chat_id, "", 0, "_🚸║ لا يوجد _", 0, "md")
