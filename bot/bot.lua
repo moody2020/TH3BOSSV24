@@ -90,6 +90,7 @@ function create_config( )
     "plugins",
     "tools",
     "zhrf",
+    "replay",
 	},
     sudo_users = {{SUDO,'"'..sudouser..'"'}},
     admins = {},
