@@ -2786,7 +2786,7 @@ end
 
 
 --------------------- Welcome -----------------------
-if matches[1] == "تفعيل" and is_mod(msg) then
+if matches[1] == "تشغيل" and is_mod(msg) then
 local target = msg.to.id
 if matches[2] == "الردود" then
 return unlock_replay(msg, data, target)
@@ -2828,7 +2828,7 @@ return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تم تفعيل التحذير
 end
 end
 end
-if matches[1] == "تعطيل" and is_mod(msg) then
+if matches[1] == "ايقاف" and is_mod(msg) then
 local target = msg.to.id
 if matches[2] == "الردود" then
 return lock_replay(msg, data, target)
@@ -2987,8 +2987,8 @@ patterns ={
 '^(تنزيل المدير) (.*)$',
 '^(قفل) (.*)$',
 '^(فتح) (.*)$',
-'^(تفعيل) (.*)$',
-'^(تعطيل) (.*)$',
+'^(تشغيل) (.*)$',
+'^(ايقاف) (.*)$',
 '^(الرابط خاص)$',
 '^(تغير الرابط)$',
 '^(المجموعه)$',
