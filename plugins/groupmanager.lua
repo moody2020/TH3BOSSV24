@@ -697,7 +697,7 @@ if lock_tag == "🔒" then
 return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التاك(#) بالتأكيد تم قفله_ ☑️'
 
 else
-data[tostring(target)]["settings"]["lock_tag"] = "☑️"
+data[tostring(target)]["settings"]["lock_tag"] = "🔒"
 save_data(_config.moderation.data, data) 
 
 return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل التاك(#)_ ☑️'
