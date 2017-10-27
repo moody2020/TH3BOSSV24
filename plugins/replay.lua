@@ -49,33 +49,34 @@ end
 
 
 ---------------[End Function data] -----------------------
+---------------[End Function data] -----------------------
 if w=="اضف رد" then
-if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
-
-redis:set('witing',true)
-redis:del('replay1')
-redis:del('replay2')
-
-return "📭¦ _حسنآ الان ارسل كلمة الرد _🍃\n"
+if not is_owner(msg) then return"♨️ للمدراء فقط ! 💯" end
+redis:set('addrd:'..msg.from.id, true)
+redis:del("replay1")
+redis:del("replay2")
+redis:del('addrd2:'..msg.from.id)
+return "📭¦ _حسننا الان ارسل كلمة الرد _🍃\n"
 end
 
 if w=="اضف رد للكل" then
-if tonumber(msg.from.id) ~= tonumber(SUDO) then return "🚸┇ هذا الاوامر للمطور الاساسي فقط 🌑" end
-redis:set('witing2',true)
-redis:del('allreplay1')
-redis:del('allrepaly2')
-
-return "📭¦ _حسنآ الان ارسل كلمة الرد العام _🍃\n"
+if tonumber(msg.from.id) ~= tonumber(SUDO) then return "☔️هذا الاوامر للمطور الاساسي فقط 🌑" end
+redis:set('addrdall:'..msg.from.id, true)
+redis:del("allreplay1")
+redis:del("allrepaly2")
+redis:del('addrdall2:'..msg.from.id)
+return "📭¦ _حسننا الان ارسل كلمة الرد العام _🍃\n"
 end
 
 if msg.text then
 
-if redis:get("witing2") and is_owner(msg) then
+if redis:get('addrdall:'..msg.from.id) and is_owner(msg) then
 if  not redis:get('allreplay1') then
 redis:set('allreplay1',msg.text)
-return "🚸┇ _شكرأ لك 😻_\n 🚸┇ _الان ارسل جواب الرد _☑️" 
+redis:set('addrdall2:'..msg.from.id,true)
+return "💢¦ _شكرأ لك 😻_\n💢¦ _الان ارسل جواب الرد _✔️" 
 end
-if redis:get('allreplay1') then
+if redis:get('addrdall2:'..msg.from.id) then
   redis:set('allrepaly2',msg.text)
  if not data['replay_all'] then
     data['replay_all'] = {}
@@ -83,25 +84,27 @@ if redis:get('allreplay1') then
     end
 data['replay_all'][redis:get("allreplay1")] = redis:get("allrepaly2")
 save_data(_config.moderation.data, data)
-redis:del('witing2')
-return '('..redis:get('allreplay1')..')\n  ☑️ تم اضافت الرد لكل المجموعات 🚀 '
+redis:del('addrdall:'..msg.from.id)
+return '('..redis:get('allreplay1')..')\n  ✔️ تم اضافت الرد لكل المجموعات 🚀 '
 end
 end
 
-if redis:get("witing") and is_owner(msg) then
+if redis:get('addrd:'..msg.from.id) and is_owner(msg) then
 if  not redis:get('replay1') then
 redis:set('replay1',msg.text)
-return "🚸┇ _شكرأ لك 😻_\n 🚸┇ _الان ارسل جواب الرد _☑️" 
+redis:set('addrd2'..msg.from.id,true)
+return "💢¦ _شكرأ لك 😻_\n💢¦ _الان ارسل جواب الرد _✔️" 
 end
-if redis:get('replay1') then
+if redis:get('addrd2'..msg.from.id) then
   redis:set('replay2',msg.text)
 data[tostring(msg.to.id)]['replay'][redis:get("replay1")] = redis:get("replay2")
 save_data(_config.moderation.data, data)
-redis:del('witing')
-return '('..redis:get('replay1')..')\n  ☑️ تم اضافت الرد 🚀 '
+redis:del('addrd:'..msg.from.id)
+return '('..redis:get('replay1')..')\n  ✔️ تم اضافت الرد 🚀 '
 end
 end
 end
+
 
 
 if w == 'مسح الردود' then
