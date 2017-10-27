@@ -7,7 +7,7 @@
 
 # <p align="center" style="color: #14635c;" > التنصيب بكود واحد
 ```sh
-git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && chmod +x TH3BOSS.sh && ./TH3BOSS.sh install && ./TH3BOSS.sh
+git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && chmod +x install.sh &&./install.sh
 ```
 
 
@@ -29,11 +29,11 @@ cd TH3BOSS
 ```
 🚸┇  وراها هاي 
 ```sh
-chmod +x TH3BOSS.sh
+chmod +x install.sh
 ```
 🚸┇  وراها هاي ونتظر يكمل التنصيب 
 ```sh
-./TH3BOSS.sh install
+./install.sh
 ```
 🚸┇  واخر شي هااي 
 ```sh
@@ -47,9 +47,8 @@ chmod +x TH3BOSS.sh
 ```sh
 @lBOSSl
 ```
-## [🚸┇انتظر قليلا ثم عند احتمال التنصيب افتح ملف البوت وخلي ايديك والاسم والمعرف](https://telegram.me/llDEV1ll)
+## [🚸┇تخلي المعلومات المطلوب بالتنصيب وتطي انتر كبل يشتغل عندك السورس مباشر  سورس تيجي ع التوكن ما مطروق بالتلي ع هيج فكره](https://telegram.me/llDEV1ll)
 
-## [🚸┇ثم قم بفتح ملف الانج وادخال التوكن وعمل رن للبوت](https://telegram.me/llDEV1ll)
 # <p align="center"> 🚸┇  للاستفسار راسلني 
 
   [Mohammed Hisham](https://telegram.me/TH3BOSS) <br>
