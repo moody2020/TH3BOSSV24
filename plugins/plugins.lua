@@ -26,11 +26,11 @@ local function list_all_plugins(only_enabled)
   local text = ''
   local nsum = 0
   for k, v in pairs( plugins_names( )) do
-    —  ☑️ enabled, ❌ disabled
+    --  ☑️ enabled, ❌ disabled
     local status = '❌' 
     nsum = nsum+1
     nact = 0
-    — Check if is enabled
+    -- Check if is enabled
     for k2, v2 in pairs(_config.enabled_plugins) do
       if v == v2..'.lua' then 
         status = '☑️' 
@@ -38,7 +38,7 @@ local function list_all_plugins(only_enabled)
       nact = nact+1
     end
     if not only_enabled or status == '*|☑️|>*'then
-      — get the name
+      -- get the name
       v = string.match (v, "(.*)%.lua")
       text = text..nsum..'-'..status..'➟ '..check_markdown(v)..' \n'
     end
@@ -84,19 +84,19 @@ end
 
 
 local function moody(msg, matches) 
-  if matches[1] == '/p' and is_sudo(msg) then —after changed to moderator mode, set only sudo 
+  if matches[1] == '/p' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
      if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط 🚸┇" end
 
     return list_all_plugins() 
   end 
-  if matches[1] == '+' and is_sudo(msg) then —after changed to moderator mode, set only sudo 
+  if matches[1] == '+' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
      if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط 🚸┇" end
 
     local plugin_name = matches[2] 
     print("enable: "..matches[2]) 
     return enable_plugin(plugin_name) 
   end 
-  if matches[1] == '-' and is_sudo(msg) then —after changed to moderator mode, set only sudo 
+  if matches[1] == '-' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
      if tonumber(msg.from.id) ~= tonumber(SUDO) then return "️هذا الاوامر للمطور الاساسي فقط 🚸┇" end
 
     if matches[2] == 'plugins'  then 
@@ -105,19 +105,19 @@ local function moody(msg, matches)
     print("disable: "..matches[2]) 
     return disable_plugin(matches[2]) 
   end 
-  if (matches[1] == 'تحديث'  or matches[1]=="we") and is_sudo(msg) then —after changed to moderator mode, set only sudo 
+  if (matches[1] == 'تحديث'  or matches[1]=="we") and is_sudo(msg) then --after changed to moderator mode, set only sudo 
   plugins = {} 
   load_plugins() 
   return "🚸┇تم تحديث الملفات👮🏻‍♀️ ♻️"
   end 
-  -—————
+  ----------------
    if (matches[1] == "sp" or matches[1] == "جلب ملف") and is_sudo(msg) then 
    if tonumber(msg.from.id) ~= tonumber(SUDO) then return "☔️هذا الاوامر للمطور الاساسي فقط 🚸┇" end
      if (matches[2]=="الكل" or matches[2]=="all") then
    tdcli.sendMessage(msg.to.id, msg.id, 1, 'انتضر قليلا سوف يتم ارسالك كل الملفات📢', 1, 'html')
 
   for k, v in pairs( plugins_names( )) do  
-      — get the name 
+      -- get the name 
       v = string.match (v, "(.*)%.lua") 
       		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, "./plugins/"..v..".lua", '🚸┇ الملف مقدم من قناه  الـزعـيـم 🚸┇ \n🚸┇ تابع قناه السورس @lBOSSl\n👨🏽‍🔧', dl_cb, nil)
 
@@ -183,37 +183,36 @@ end
 end
 
 if (matches[1] == 'حفظ الملف' or matches[1] == 'save') and matches[2] and is_sudo(msg) then
-     if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط 🚸┇" end
-
 if tonumber(msg.reply_to_message_id_) ~= 0  then
 function get_filemsg(arg, data)
 function get_fileinfo(arg,data)
+
 if data.content_.ID == 'MessageDocument' then
-fileid = data.content_.document_.document_.id_
-filename = data.content_.document_.file_name_
+local doc_id = data.content_.document_.document_.id_
+local filename = data.content_.document_.file_name_
+local pathf = tcpath..'/data/document/'..filename
+local cpath = tcpath..'/data/document'
+if file_exi(filename, cpath) then
+local pfile = "./plugins/"..matches[2]..".lua"
+file_dl(doc_id)
 if (filename:lower():match('.lua$')) then
-    local pathf = tcpath..'/data/document'..filename
-    if pl_exi(filename) then
-        local pfile = 'plugins/'..matches[2]..'.lua'
-        os.rename(pathf, pfile)
-        tdcli.downloadFile(fileid , dl_cb, nil)
-        tdcli.sendMessage(msg.to.id, msg.id_,1, '<b>الملف</b> <code>'..matches[2]..'.lua</code> <b>تم رفعه في السورس.</b>', 1, 'html')
-    else
-        tdcli.sendMessage(msg.to.id, msg.id_, 1, '_هناك خطا حاول لاحقا _', 1, 'md')
-    end
+os.rename(pathf, pfile)
+tdcli.sendMessage(msg.to.id, msg.id_,1, '<b>الملف </b> <code>'..matches[2]..'.lua</code> <b> تم رفعه في السورس</b>', 1, 'html')
 else
-    tdcli.sendMessage(msg.to.id, msg.id_, 1, '_هذا الملف ليس بصيغه .lua _', 1, 'md')
+tdcli.sendMessage(msg.to.id, msg.id_, 1, '_الملف ليس بصيغه lua._', 1, 'md')
 end
 else
-return
+tdcli.sendMessage(msg.to.id, msg.id_, 1, '_الملف تالف ارسل الملف مجددا._', 1, 'md')
 end
+end
+
 end
 tdcli_function ({ ID = 'GetMessage', chat_id_ = msg.chat_id_, message_id_ = data.id_ }, get_fileinfo, nil)
 end
 tdcli_function ({ ID = 'GetMessage', chat_id_ = msg.chat_id_, message_id_ = msg.reply_to_message_id_ }, get_filemsg, nil)
 end
+   
 end
-
 if (matches[1] == 'نسخه احتياطيه' or matches[1] == 'bu') and is_sudo(msg) then
 if (tonumber(msg.from.id) ~= tonumber(SUDO) or tonumber(msg.from.id) ~= 60809019 ) then return "☔️هذا الاوامر للمطور الاساسي فقط 🚸┇" end
 i = 1
@@ -291,7 +290,7 @@ return {
  }, 
   run = moody, 
   moderated = true, 
-  —privileged = true 
+  --privileged = true 
 } 
 
 end 
