@@ -1,7 +1,7 @@
 
 do 
 
-ver = '20'
+ver = '21'
 
 local function plugin_enabled( name ) 
   for k,v in pairs(_config.enabled_plugins) do 
