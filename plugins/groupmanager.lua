@@ -197,7 +197,7 @@ local function setwhitelist_cb(arg, data)
 
 local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
@@ -225,7 +225,7 @@ if cmd == "remwhitelist" then
 local function remwhitelist_cb(arg, data)
 local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
@@ -254,7 +254,7 @@ local function owner_cb(arg, data)
 
 local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
@@ -304,7 +304,7 @@ local function rem_owner_cb(arg, data)
 
 local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
