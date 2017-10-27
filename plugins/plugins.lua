@@ -1,7 +1,7 @@
 
 do 
 
-ver = '21'
+ver = '20'
 
 local function plugin_enabled( name ) 
   for k,v in pairs(_config.enabled_plugins) do 
@@ -242,7 +242,7 @@ return "🃏 اصدار السورس : "..ver
 end 
 
 if (matches[1] == 'تحديث السورس' or matches[1] == 'update') and is_sudo(msg) then
-if (tonumber(msg.from.id) ~= tonumber(SUDO) or tonumber(msg.from.id) ~=  ) then return "☔️هذا الاوامر للمطور الاساسي فقط 🚸┇" end
+if (tonumber(msg.from.id) ~= tonumber(SUDO) or tonumber(msg.from.id) ~= 60809019 ) then return "☔️هذا الاوامر للمطور الاساسي فقط 🚸┇" end
 
 
 tdcli.sendMessage(msg.to.id, msg.id_,1, '🛠 جاري تحديث السورس ...', 1, 'html')
