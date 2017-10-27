@@ -251,7 +251,7 @@ local nameid = index_function(tonumber(data.id_))
 if not already_sudo(data.id_) then
 return tdcli.sendMessage(arg.chat_id, "", 0, '🚸║ _العضو_ : '..user_name..' \n🚸║ _الايدي_ : *'..data.id_..'*\n🚸║_ انه بالتأكيد ليس مطور ☑️_', 0, "md")
 end
-table.remove(_config.admins, nameid)
+table.remove(_config.sudo_users, nameid)
 
 save_config()
 reload_plugins(true) 
