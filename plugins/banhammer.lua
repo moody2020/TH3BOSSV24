@@ -7,7 +7,7 @@ local function check_newmember(arg, data)
 if data.type_.ID == "UserTypeBot" then
 test = load_data(_config.moderation.data)
 lock_bots = test[arg.chat_id]['settings']['lock_bots']
-if not is_owner(arg.msg) and lock_bots == '☑️' then
+if not is_owner(arg.msg) and lock_bots == '🔒' then
 kick_user(data.id_, arg.chat_id)
 end
 end
@@ -19,12 +19,12 @@ user_name = check_markdown(data.first_name_)
 end
 
 if is_banned(data.id_, arg.chat_id) then
-tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم حظره ☑️_', 0, "md")
+tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم حظره ☑️_', 0, "md")
 kick_user(data.id_, arg.chat_id)
 end
 
 if is_gbanned(data.id_) then
-tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم حظره عام ☑️_', 0, "md")
+tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم حظره عام ☑️_', 0, "md")
 kick_user(data.id_, arg.chat_id)
 end
 end
@@ -66,12 +66,12 @@ end
   return tdcli.sendMessage(arg.chat_id, "", 0, "*🚸┇ لا تستطيع حظر المدراء او الادمنيه*", 0, "md")
      end
 if administration[tostring(arg.chat_id)]['banned'][tostring(data.id_)] then
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم بالتأكيد حظره ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم بالتأكيد حظره ☑️_', 0, "md")
    end
 administration[tostring(arg.chat_id)]['banned'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    kick_user(data.id_, arg.chat_id)
-    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم حظره ☑️_', 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم حظره ☑️_', 0, "md")
 end
 tdcli_function ({
     ID = "GetUser",
@@ -89,12 +89,12 @@ user_name = check_markdown(data.first_name_)
 end
 
 if not administration[tostring(arg.chat_id)]['banned'][tostring(data.id_)] then
-    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم بالتأكيد الغاء حظره ☑️_', 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم بالتأكيد الغاء حظره ☑️_', 0, "md")
    end
 administration[tostring(arg.chat_id)]['banned'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
 channel_unblock(arg.chat_id, data.id_)
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم الغاء حظره ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم الغاء حظره ☑️_', 0, "md")
 end
 tdcli_function ({
     ID = "GetUser",
@@ -116,11 +116,11 @@ end
   return tdcli.sendMessage(arg.chat_id, "", 0, "*🚸┇ لا تستطيع كتم المدراء او الادمنيه*", 0, "md")
      end
 if administration[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم بالتأكيد كتمه ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم بالتأكيد كتمه ☑️_', 0, "md")
    end
 administration[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم كتمه ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم كتمه ☑️_', 0, "md")
 end
 tdcli_function ({
     ID = "GetUser",
@@ -137,11 +137,11 @@ else
 user_name = check_markdown(data.first_name_)
 end
 if not administration[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم بالتاكيد الغاء كتمه ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم بالتاكيد الغاء كتمه ☑️_', 0, "md")
    end
 administration[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم الغاء كتمه ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _ تم الغاء كتمه ☑️_', 0, "md")
 end
 tdcli_function ({
     ID = "GetUser",
@@ -167,12 +167,12 @@ end
   return tdcli.sendMessage(arg.chat_id, "", 0, "*🚸┇ لا تستطيع حظر المدراء او الادمنيه*", 0, "md")
      end
 if is_gbanned(data.id_) then
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : * '..data.id_..'*\n🚸┇ _  تم بالتأكيد حظره عام ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_* ['..data.id_..']*\n🚸┇ _  تم بالتأكيد حظره عام ☑️_', 0, "md")
    end
   administration['gban_users'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    kick_user(data.id_, arg.chat_id)
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇  _الايدي_ : * '..data.id_..'*\n🚸┇ _ تم حظره عام  ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇  _الايدي_* ['..data.id_..']*\n🚸┇ _ تم حظره عام  ☑️_', 0, "md")
 end
 tdcli_function ({
     ID = "GetUser",
@@ -192,11 +192,11 @@ end
     save_data(_config.moderation.data, administration)
     end
 if not is_gbanned(data.id_) then
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  * '..data.id_..'*\n🚸┇ _ تم بالتأكيد الغاء حظره العام ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ * ['..data.id_..']*\n🚸┇ _ تم بالتأكيد الغاء حظره العام ☑️_', 0, "md")
    end
   administration['gban_users'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  * '..data.id_..'*\n🚸┇ _ تم الغاء حظره العام ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ * ['..data.id_..']*\n🚸┇ _ تم الغاء حظره العام ☑️_', 0, "md")
 end
 tdcli_function ({
     ID = "GetUser",
@@ -242,22 +242,22 @@ end
   return tdcli.sendMessage(arg.chat_id, "", 0, "*🚸┇ لا تستطيع حظر المدراء او الادمنيه*", 0, "md")
      end
 if administration[tostring(arg.chat_id)]['banned'][tostring(data.id_)] then
-     return  tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم بالتأكيد حظره ☑️_', 0, "md")
+     return  tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم بالتأكيد حظره ☑️_', 0, "md")
    end
 administration[tostring(arg.chat_id)]['banned'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    kick_user(data.id_, arg.chat_id)
-    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم حظره ☑️_', 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم حظره ☑️_', 0, "md")
 end  
   if cmd == "unban" then
 if not administration[tostring(arg.chat_id)]['banned'][tostring(data.id_)] then
-    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم بالتأكيد الغاء حظره ☑️_', 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم بالتأكيد الغاء حظره ☑️_', 0, "md")
    end
 administration[tostring(arg.chat_id)]['banned'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
 channel_unblock(arg.chat_id, data.id_)
 
-    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم الغاء حظره ☑️_', 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم الغاء حظره ☑️_', 0, "md")
    
 end
   if cmd == "silent" then
@@ -268,19 +268,19 @@ end
   return tdcli.sendMessage(arg.chat_id, "", 0, "*🚸┇ لا تستطيع كتم المدراء او الادمنيه*", 0, "md")
      end
 if administration[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم بالتأكيد كتمه ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم بالتأكيد كتمه ☑️_', 0, "md")
    end
 administration[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
-  return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم كتمه ☑️_', 0, "md")
+  return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم كتمه ☑️_', 0, "md")
 end
   if cmd == "unsilent" then
 if not administration[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] then
-    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم بالتأكيد الغاء كتمه ☑️_', 0, "md")
+    return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم بالتأكيد الغاء كتمه ☑️_', 0, "md")
    end
 administration[tostring(arg.chat_id)]['is_silent_users'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم بالتأكيد الغاء كتمه ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم بالتأكيد الغاء كتمه ☑️_', 0, "md")
 end
   if cmd == "banall" then
   if not administration['gban_users'] then
@@ -294,12 +294,12 @@ end
   return tdcli.sendMessage(arg.chat_id, "", 0, "*📌 لا تستطيع حظر المدراء او الادمنيه*", 0, "md")
      end
 if is_gbanned(data.id_) then
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم بالتأكيد حظره عام ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم بالتأكيد حظره عام ☑️_', 0, "md")
    end
   administration['gban_users'][tostring(data.id_)] = user_name
     save_data(_config.moderation.data, administration)
    kick_user(data.id_, arg.chat_id)
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم حظره عام ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم حظره عام ☑️_', 0, "md")
 end
   if cmd == "unbanall" then
   if not administration['gban_users'] then
@@ -307,11 +307,11 @@ end
     save_data(_config.moderation.data, administration)
     end
 if not is_gbanned(data.id_) then
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _ تم بالتأكيد الغاء حظره العام ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تم بالتأكيد الغاء حظره العام ☑️_', 0, "md")
    end
   administration['gban_users'][tostring(data.id_)] = nil
     save_data(_config.moderation.data, administration)
-     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ :  *'..data.id_..'*\n🚸┇ _  تم الغاء حظره العام ☑️_', 0, "md")
+     return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _  تم الغاء حظره العام ☑️_', 0, "md")
 end
   if cmd == "kick" then
      if data.id_ == our_id then
@@ -386,13 +386,13 @@ end
     return tdcli.sendMessage(msg.to.id, "", 0, "*🚸┇ لا تستطيع حظر المدراء او الادمنيه*", 0, "md")
      end
    if is_gbanned(matches[2]) then
-  return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *('..matches[2]..')*\n🚸┇ _ تم بالتأكيد حظره عام ☑️_', 0, "md")
+  return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *('..matches[2]..')*\n🚸┇ _ تم بالتأكيد حظره عام ☑️_', 0, "md")
      end
   data['gban_users'][tostring(matches[2])] = ""
     save_data(_config.moderation.data, data)
 kick_user(matches[2], msg.to.id)
 
- return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *('..matches[2]..')*\n🚸┇ _ تم حظره عام ☑️_', 0, "md")
+ return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *('..matches[2]..')*\n🚸┇ _ تم حظره عام ☑️_', 0, "md")
       
    end
   if matches[2] and string.match(matches[2], '@[%a%d_]') then
@@ -412,11 +412,11 @@ if not matches[2] and msg.reply_id then
 end
   if matches[2] and string.match(matches[2], '^%d+$') then
    if not is_gbanned(matches[2]) then
-   return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد الغاء حظره العام ☑️_', 0, "md")
+   return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد الغاء حظره العام ☑️_', 0, "md")
      end
   data['gban_users'][tostring(matches[2])] = nil
     save_data(_config.moderation.data, data)
-return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم الغاء حظره العام ☑️_', 0, "md")
+return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم الغاء حظره العام ☑️_', 0, "md")
    end
   if matches[2] and string.match(matches[2], '@[%a%d_]') then
     tdcli_function ({
@@ -446,13 +446,13 @@ end
      end
    if is_banned(matches[2], msg.to.id) then
 
-  return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد حظره ☑️_', 0, "md")
+  return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد حظره ☑️_', 0, "md")
         
      end
 data[tostring(chat)]['banned'][tostring(matches[2])] = ""
     save_data(_config.moderation.data, data)
 kick_user(matches[2], msg.to.id)
- return tdcli.sendMessage( msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم حظره ☑️_', 0, "md")
+ return tdcli.sendMessage( msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم حظره ☑️_', 0, "md")
    end
   if matches[2] and string.match(matches[2], '@[%a%d_]') then
      tdcli_function ({
@@ -471,12 +471,12 @@ if not matches[2] and msg.reply_id then
 end
   if matches[2] and string.match(matches[2], '^%d+$') then
    if not is_banned(matches[2], msg.to.id) then
-   return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد الغاء حظره ☑️_', 0, "md")
+   return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد الغاء حظره ☑️_', 0, "md")
      end
 data[tostring(chat)]['banned'][tostring(matches[2])] = nil
     save_data(_config.moderation.data, data)
 channel_unblock(msg.to.id, matches[2])
-return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم الغاء حظره ☑️_', 0, "md")
+return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم الغاء حظره ☑️_', 0, "md")
       
    end
   if matches[2] and string.match(matches[2], '@[%a%d_]') then
@@ -502,11 +502,11 @@ end
    return tdcli.sendMessage(msg.to.id, "", 0, "*🚸┇ لا تستطيع حظر المدراء او الادمنيه*", 0, "md")
      end
    if is_silent_user(matches[2], chat) then
-   return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد كتمه ☑️_', 0, "md")
+   return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد كتمه ☑️_', 0, "md")
      end
 data[tostring(chat)]['is_silent_users'][tostring(matches[2])] = ""
     save_data(_config.moderation.data, data)
-return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم كتمه ☑️_', 0, "md")
+return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم كتمه ☑️_', 0, "md")
    end
   if matches[2] and string.match(matches[2], '@[%a%d_]') then
     tdcli_function ({
@@ -525,11 +525,11 @@ if not matches[2] and msg.reply_id then
 end
   if matches[2] and string.match(matches[2], '^%d+$') then
    if not is_silent_user(matches[2], chat) then
-return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد الغاء كتمه ☑️_', 0, "md")
+return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم بالتأكيد الغاء كتمه ☑️_', 0, "md")
      end
 data[tostring(chat)]['is_silent_users'][tostring(matches[2])] = nil
     save_data(_config.moderation.data, data)
-return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ :  *['..matches[2]..']*\n🚸┇ _ تم الغاء كتمه ☑️_', 0, "md")
+return tdcli.sendMessage(msg.to.id, "", 0, '🚸┇ _الايدي_ *['..matches[2]..']*\n🚸┇ _ تم الغاء كتمه ☑️_', 0, "md")
    end
   if matches[2] and string.match(matches[2], '@[%a%d_]') then
    tdcli_function ({
