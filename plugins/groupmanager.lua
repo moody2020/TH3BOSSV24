@@ -48,7 +48,7 @@ mute_document = '🔒',
 mute_sticker = '🔓',
 mute_voice = '🔓',
 mute_keyboard = '🔓',
-mute_game = '🔓',
+mute_game = '🔒',
 mute_inline = '🔒',
 mute_tgservice = '🔓',
 }
@@ -207,13 +207,13 @@ save_data(_config.moderation.data, administration)
 end
 if administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ انه بالتأكيد من عضو مميز ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ انه بالتأكيد من عضو مميز ☑️ _', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _ تمت ترقيته ليصبح ضمن عضو مميز ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تمت ترقيته ليصبح ضمن عضو مميز ☑️_', 0, "md")
 
 end
 tdcli_function ({
@@ -235,13 +235,13 @@ save_data(_config.moderation.data, administration)
 end
 if not administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ انه بالتأكيد ليس من عضو مميز ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ انه بالتأكيد ليس من عضو مميز ☑️ _', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇_ تمت تنزيله من عضو مميز ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇_ تمت تنزيله من عضو مميز ☑️_', 0, "md")
 end
 
 tdcli_function ({
@@ -260,13 +260,13 @@ user_name = check_markdown(data.first_name_)
 end
 if administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇_ انه بالتأكيد مدير ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇_ انه بالتأكيد مدير ☑️ _', 0, "md")
 end
 
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇_ تمت ترقيته ليصبح مدير ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇_ تمت ترقيته ليصبح مدير ☑️_', 0, "md")
 
 end
 tdcli_function ({
@@ -285,13 +285,13 @@ user_name = check_markdown(data.first_name_)
 end
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇_الايدي_ : *'..data.id_..'*\n🚸┇_ انه بالتأكيد ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇_ الايدي _*['..data.id_..']*\n🚸┇_ انه بالتأكيد ادمن ☑️_', 0, "md")
 end
 
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ تمت ترقيته ليصبح ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ تمت ترقيته ليصبح ادمن ☑️_', 0, "md")
 
 end
 tdcli_function ({
@@ -310,13 +310,13 @@ user_name = check_markdown(data.first_name_)
 end
 if not administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _انه بالتأكيد ليس مدير ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _انه بالتأكيد ليس مدير ☑️_', 0, "md")
 end
 
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _تم تنزيله من الاداره ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _تم تنزيله من الاداره ☑️_', 0, "md")
 
 end
 tdcli_function ({
@@ -334,13 +334,13 @@ user_name = check_markdown(data.first_name_)
 end
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _انه بالتأكيد ليس ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _انه بالتأكيد ليس ادمن ☑️_', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _ الايدي_ *'..data.id_..'*\n🚸┇ _تم تنزيله من الادمنيه ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي_ *['..data.id_..']*\n🚸┇ _تم تنزيله من الادمنيه ☑️_', 0, "md")
 
 end
 tdcli_function ({
@@ -387,13 +387,13 @@ save_data(_config.moderation.data, administration)
 end
 if administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇_ انه بالتأكيد من عضو مميز ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇_ انه بالتأكيد من عضو مميز ☑️ _', 0, "md")
 end
 
 administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _ تمت ترقيته ليصبح ضمن عضو مميز ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تمت ترقيته ليصبح ضمن عضو مميز ☑️_', 0, "md")
 
 end
 if cmd == "remwhitelist" then
@@ -403,55 +403,55 @@ save_data(_config.moderation.data, administration)
 end
 if not administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ انه بالتأكيد ليس من عضو مميز ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ انه بالتأكيد ليس من عضو مميز ☑️ _', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ تمت تنزيله من عضو مميز ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ تمت تنزيله من عضو مميز ☑️_', 0, "md")
 
 end
 if cmd == "setowner" then
 if administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ انه بالتأكيد مدير ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ انه بالتأكيد مدير ☑️ _', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _ تمت ترقيته ليصبح مدير ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تمت ترقيته ليصبح مدير ☑️_', 0, "md")
 
 end
 if cmd == "promote" then
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ انه بالتأكيد ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ انه بالتأكيد ادمن ☑️_', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ تمت ترقيته ليصبح ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ تمت ترقيته ليصبح ادمن ☑️_', 0, "md")
 
 end
 if cmd == "remowner" then
 if not administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _انه بالتأكيد ليس مدير ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _انه بالتأكيد ليس مدير ☑️_', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _تم تنزيله من الاداره ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _تم تنزيله من الاداره ☑️_', 0, "md")
 
 end
 if cmd == "demote" then
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n💢 _الايدي_ : *'..data.id_..'*\n💢 _انه بالتأكيد ليس ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _انه بالتأكيد ليس ادمن ☑️_', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n💢 _ الايدي_ *'..data.id_..'*\n💢 _تم تنزيله من الادمنيه ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي_ *['..data.id_..']*\n🚸┇ _تم تنزيله من الادمنيه ☑️_', 0, "md")
 
 end
 if cmd == "ايدي" then
@@ -488,12 +488,12 @@ administration[tostring(arg.chat_id)]['whitelist'] = {}
 save_data(_config.moderation.data, administration)
 end
 if administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] then
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇_ انه بالتأكيد من عضو مميز ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇_ انه بالتأكيد من عضو مميز ☑️ _', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _ تمت ترقيته ليصبح ضمن عضو مميز ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تمت ترقيته ليصبح ضمن عضو مميز ☑️_', 0, "md")
 
 end
 if cmd == "remwhitelist" then
@@ -503,61 +503,61 @@ save_data(_config.moderation.data, administration)
 end
 if not administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇_ انه بالتأكيد ليس من عضو مميز ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇_ انه بالتأكيد ليس من عضو مميز ☑️ _', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _ تمت تنزيله من عضو مميز ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تمت تنزيله من عضو مميز ☑️_', 0, "md")
 end
 
 if cmd == "setowner" then
 if administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..'\n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ انه بالتأكيد مدير ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..']\n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ انه بالتأكيد مدير ☑️ _', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _ تمت ترقيته ليصبح مدير ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _ تمت ترقيته ليصبح مدير ☑️_', 0, "md")
 
 end
 if cmd == "promote" then
 if administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ انه بالتأكيد ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ انه بالتأكيد ادمن ☑️_', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = user_name
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ : *'..data.id_..'*\n🚸┇ _ تمت ترقيته ليصبح ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي _*['..data.id_..']*\n🚸┇ _ تمت ترقيته ليصبح ادمن ☑️_', 0, "md")
 
 end
 if cmd == "remowner" then
 if not administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _انه بالتأكيد ليس مدير ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _انه بالتأكيد ليس مدير ☑️_', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['owners'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _الايدي_ *'..data.id_..'*\n🚸┇ _تم تنزيله من الاداره ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _الايدي_ *['..data.id_..']*\n🚸┇ _تم تنزيله من الاداره ☑️_', 0, "md")
 
 end
 if cmd == "demote" then
 if not administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇_الايدي_ : *'..data.id_..'*\n🚸┇ _انه بالتأكيد ليس ادمن ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇_ الايدي _*['..data.id_..']*\n🚸┇ _انه بالتأكيد ليس ادمن ☑️_', 0, "md")
 end
 
 administration[tostring(arg.chat_id)]['mods'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ :  '..user_name..' \n🚸┇ _ الايدي_ *'..data.id_..'*\n🚸┇ _تم تنزيله من الادمنيه ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '🚸┇ _العضو_ ['..user_name..'] \n🚸┇ _ الايدي_ *['..data.id_..']*\n🚸┇ _تم تنزيله من الادمنيه ☑️_', 0, "md")
 
 end
 if cmd == "whois" then
@@ -588,12 +588,12 @@ if not is_mod(msg) then
 return "🚸┇ _هذا الامر يخص الادمنيه فقط _ 🚶"
 end
 local lock_brod = data[tostring(target)]["settings"]["lock_brod"] 
-if lock_brod == "🔓" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _اذاعه المطورين بالتاكيد تم تفعيله ☑️_'
+if lock_brod == "no" then
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _اذاعه المطورين بالتاكيد تم تعطيله ☑️_'
 else
-data[tostring(target)]["settings"]["lock_brod"] = "🔓"
+data[tostring(target)]["settings"]["lock_brod"] = "no"
 save_data(_config.moderation.data, data) 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم تفعيل اذاعه المطورين  ☑️_'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم تعطيل اذاعه المطورين  ☑️_'
 end
 end
 
@@ -602,12 +602,12 @@ if not is_mod(msg) then
 return "🚸┇ _هذا الامر يخص الادمنيه فقط _ 🚶"
 end 
 local lock_brod = data[tostring(target)]["settings"]["lock_brod"]
-if lock_brod == "🔒" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _اذاعه المطورين بالتاكيد تم تفعيله ☑️_'
+if lock_brod == "yes" then
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _اذاعه المطورين بالتاكيد تم تفعيله ☑️_'
 else 
-data[tostring(target)]["settings"]["lock_brod"] = "🔒"
+data[tostring(target)]["settings"]["lock_brod"] = "yes"
 save_data(_config.moderation.data, data) 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم تفعيل اذاعه المطورين  ☑️_'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم تفعيل اذاعه المطورين  ☑️_'
 end
 end
 
@@ -619,11 +619,11 @@ return "🚸┇ _هذا الامر يخص الادمنيه فقط _ 🚶"
 end
 local replay = data[tostring(target)]["settings"]["replay"] 
 if replay == "🔓" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الردود بالتاكيد تم تفعيله ☑️_'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الردود بالتاكيد تم تعطيله ☑️_'
 else
 data[tostring(target)]["settings"]["replay"] = "🔓"
 save_data(_config.moderation.data, data) 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم تفعيل الردود  ☑️_'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم تعطيل الردود  ☑️_'
 end
 end
 
@@ -633,11 +633,11 @@ return "🚸┇ _هذا الامر يخص الادمنيه فقط _ 🚶"
 end 
 local replay = data[tostring(target)]["settings"]["replay"]
 if replay == "🔒" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الردود بالتاكيد تم تفعيله ☑️_'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الردود بالتاكيد تم تفعيله ☑️_'
 else 
 data[tostring(target)]["settings"]["replay"] = "🔒"
 save_data(_config.moderation.data, data) 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم تفعيل الردود  ☑️_'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم تفعيل الردود  ☑️_'
 end
 end
 
@@ -650,12 +650,12 @@ end
 
 local lock_link = data[tostring(target)]["settings"]["lock_link"] 
 if lock_link == "🔒" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الروابط بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الروابط بالتأكيد تم قفلها_ ☑️'
 else
 data[tostring(target)]["settings"]["lock_link"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الروابط_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الروابط_ ☑️'
 
 end
 end
@@ -671,12 +671,12 @@ end
 local lock_link = data[tostring(target)]["settings"]["lock_link"]
 if lock_link == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الروابط بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الروابط بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_link"] = "🔓" save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الروابط_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الروابط_ ☑️'
 
 end
 end
@@ -693,13 +693,13 @@ end
 local lock_tag = data[tostring(target)]["settings"]["lock_tag"] 
 if lock_tag == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التاك(#) بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التاك(#) بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_tag"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل التاك(#)_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل التاك(#)_ ☑️'
 
 end
 end
@@ -714,12 +714,12 @@ end
 local lock_tag = data[tostring(target)]["settings"]["lock_tag"]
 if lock_tag == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التاك(#) بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التاك(#) بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_tag"] = "🔓" save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح التاك(#)_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح التاك(#)_ ☑️'
 end
 end
 
@@ -735,13 +735,13 @@ end
 local lock_mention = data[tostring(target)]["settings"]["lock_mention"] 
 if lock_mention == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التذكير بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التذكير بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_mention"] = "🔒"
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل التذكير_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل التذكير_ ☑️'
 
 end
 end
@@ -757,12 +757,12 @@ end
 local lock_mention = data[tostring(target)]["settings"]["lock_mention"]
 if lock_mention == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التذكير بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التذكير بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_mention"] = "🔓" save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح التذكير _☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح التذكير _☑️'
 
 end
 end
@@ -780,13 +780,13 @@ end
 local lock_edit = data[tostring(target)]["settings"]["lock_edit"] 
 if lock_edit == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التعديل بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التعديل بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_edit"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل التعديل_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل التعديل_ ☑️'
 
 end
 end
@@ -799,10 +799,10 @@ end
 
 local lock_edit = data[tostring(target)]["settings"]["lock_edit"]
 if lock_edit == "🔓" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التعديل بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التعديل بالتأكيد تم فتحه_ ☑️'
 else 
 data[tostring(target)]["settings"]["lock_edit"] = "🔓" save_data(_config.moderation.data, data) 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح التعديل_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح التعديل_ ☑️'
 end
 end
 
@@ -818,13 +818,13 @@ end
 local lock_spam = data[tostring(target)]["settings"]["lock_spam"] 
 if lock_spam == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الكلايش بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الكلايش بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_spam"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الكلايش_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الكلايش_ ☑️'
 
 end
 end
@@ -840,13 +840,13 @@ end
 local lock_spam = data[tostring(target)]["settings"]["lock_spam"]
 if lock_spam == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الكلايش بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الكلايش بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_spam"] = "🔓" 
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الكلايش_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الكلايش_ ☑️'
 
 end
 end
@@ -863,13 +863,13 @@ end
 local lock_flood = data[tostring(target)]["settings"]["flood"] 
 if lock_flood == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التكرار بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التكرار بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["settings"]["flood"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '����┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل التكرار_ ☑️'
+return '����┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل التكرار_ ☑️'
 
 end
 end
@@ -885,12 +885,12 @@ end
 local lock_flood = data[tostring(target)]["settings"]["flood"]
 if lock_flood == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التكرار بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التكرار بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["flood"] = "🔓" save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح التكرار_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح التكرار_ ☑️'
 
 end
 end
@@ -907,13 +907,13 @@ end
 local lock_bots = data[tostring(target)]["settings"]["lock_bots"] 
 if lock_bots == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _البوتات بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _البوتات بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_bots"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل البوتات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل البوتات_ ☑️'
 
 end
 end
@@ -929,12 +929,12 @@ end
 local lock_bots = data[tostring(target)]["settings"]["lock_bots"]
 if lock_bots == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _البوتات بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _البوتات بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_bots"] = "🔓" save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح البوتات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح البوتات_ ☑️'
 
 end
 end
@@ -951,13 +951,13 @@ end
 local lock_join = data[tostring(target)]["settings"]["lock_join"] 
 if lock_join == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الاضافه بالتاكيد تم قفلها  _ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الاضافه بالتاكيد تم قفلها  _ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_join"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n��┇ _تم قفل الاضافه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n��┇ _تم قفل الاضافه_ ☑️'
 
 end
 end
@@ -972,13 +972,13 @@ end
 local lock_join = data[tostring(target)]["settings"]["lock_join"]
 if lock_join == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الاضافه بالتاكيد تم فتحها  _ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الاضافه بالتاكيد تم فتحها  _ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_join"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الاضافه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الاضافه_ ☑️'
 
 end
 end
@@ -995,13 +995,13 @@ end
 local lock_markdown = data[tostring(target)]["settings"]["lock_markdown"] 
 if lock_markdown == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الماركدوان بالتاكيد تم قفله _ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الماركدوان بالتاكيد تم قفله _ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_markdown"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الماركدوان_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الماركدوان_ ☑️'
 
 end
 end
@@ -1017,12 +1017,12 @@ end
 local lock_markdown = data[tostring(target)]["settings"]["lock_markdown"]
 if lock_markdown == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الماركدوان بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الماركدوان بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_markdown"] = "🔓" save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الماركدوان_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الماركدوان_ ☑️'
 
 end
 end
@@ -1039,13 +1039,13 @@ end
 local lock_webpage = data[tostring(target)]["settings"]["lock_webpage"] 
 if lock_webpage == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الويب بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الويب بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_webpage"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الويب_☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الويب_☑️'
 
 end
 end
@@ -1061,13 +1061,13 @@ end
 local lock_webpage = data[tostring(target)]["settings"]["lock_webpage"]
 if lock_webpage == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الويب بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الويب بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_webpage"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الويب_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الويب_ ☑️'
 
 end
 end
@@ -1084,13 +1084,13 @@ end
 local lock_pin = data[tostring(target)]["settings"]["lock_pin"] 
 if lock_pin == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التثبيت بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التثبيت بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["settings"]["lock_pin"] = "🔒"
 save_data(_config.moderation.data, data) 
 
-return "🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل التثبيت_☑️"
+return "🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل التثبيت_☑️"
 
 end
 end
@@ -1106,13 +1106,13 @@ end
 local lock_pin = data[tostring(target)]["settings"]["lock_pin"]
 if lock_pin == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التثبيت بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التثبيت بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["settings"]["lock_pin"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح التثبيت_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح التثبيت_ ☑️'
 
 end
 end
@@ -1130,13 +1130,13 @@ end
 local mute_gif = data[tostring(target)]["mutes"]["mute_gif"] 
 if mute_gif == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _المتحركه بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _المتحركه بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_gif"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل المتحركه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل المتحركه_ ☑️'
 
 end
 end
@@ -1151,13 +1151,13 @@ end
 
 local mute_gif = data[tostring(target)]["mutes"]["mute_gif"]
 if mute_gif == "🔓" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _المتحركه بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _المتحركه بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_gif"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح المتحركه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح المتحركه_ ☑️'
 
 end
 end
@@ -1173,13 +1173,13 @@ end
 local mute_game = data[tostring(target)]["mutes"]["mute_game"] 
 if mute_game == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الالعاب بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الالعاب بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_game"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الالعاب_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الالعاب_ ☑️'
 
 end
 end
@@ -1195,13 +1195,13 @@ end
 local mute_game = data[tostring(target)]["mutes"]["mute_game"]
 if mute_game == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الألعاب بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الألعاب بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_game"] = "🔓"
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الألعاب_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الألعاب_ ☑️'
 
 end
 end
@@ -1217,13 +1217,13 @@ end
 local mute_inline = data[tostring(target)]["mutes"]["mute_inline"] 
 if mute_inline == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الانلاين بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الانلاين بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_inline"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الانلاين_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الانلاين_ ☑️'
 
 end
 end
@@ -1239,13 +1239,13 @@ end
 local mute_inline = data[tostring(target)]["mutes"]["mute_inline"]
 if mute_inline == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الانلاين بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الانلاين بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_inline"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الانلاين_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الانلاين_ ☑️'
 
 end
 end
@@ -1259,13 +1259,13 @@ end
 
 local mute_text = data[tostring(target)]["mutes"]["mute_text"] 
 if mute_text == "🔒" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الدرشه بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الدرشه بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_text"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الدردشه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الدردشه_ ☑️'
 
 end
 end
@@ -1281,13 +1281,13 @@ end
 local mute_text = data[tostring(target)]["mutes"]["mute_text"]
 if mute_text == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الدردشه بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الدردشه بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_text"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الدردشه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الدردشه_ ☑️'
 
 end
 end
@@ -1303,13 +1303,13 @@ end
 local mute_photo = data[tostring(target)]["mutes"]["mute_photo"] 
 if mute_photo == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الصور بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الصور بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_photo"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الصور_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الصور_ ☑️'
 
 end
 end
@@ -1325,13 +1325,13 @@ end
 local mute_photo = data[tostring(target)]["mutes"]["mute_photo"]
 if mute_photo == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الصور بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الصور بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_photo"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الصور_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الصور_ ☑️'
 
 end
 end
@@ -1347,13 +1347,13 @@ end
 local mute_video = data[tostring(target)]["mutes"]["mute_video"] 
 if mute_video == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الفيديو بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الفيديو بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_video"] = "🔒" 
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الفيديو_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الفيديو_ ☑️'
 
 end
 end
@@ -1369,13 +1369,13 @@ end
 local mute_video = data[tostring(target)]["mutes"]["mute_video"]
 if mute_video == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الفيديو بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الفيديو يال��أكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_video"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الفيديو_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الفيديو_ ☑️'
 end
 end
 ---------------Mute Audio-------------------
@@ -1390,13 +1390,13 @@ end
 local mute_audio = data[tostring(target)]["mutes"]["mute_audio"] 
 if mute_audio == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _البصمات بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _البصمات بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_audio"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل البصمات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل البصمات_ ☑️'
 
 end
 end
@@ -1412,13 +1412,13 @@ end
 local mute_audio = data[tostring(target)]["mutes"]["mute_audio"]
 if mute_audio == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _البصمات بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _البصمات بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_audio"] = "🔓"
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح البصمات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح البصمات_ ☑️'
 
 end
 end
@@ -1434,13 +1434,13 @@ end
 local mute_voice = data[tostring(target)]["mutes"]["mute_voice"] 
 if mute_voice == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الصوت بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الصوت بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_voice"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الصوت_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الصوت_ ☑️'
 end
 
 end
@@ -1456,13 +1456,13 @@ end
 local mute_voice = data[tostring(target)]["mutes"]["mute_voice"]
 if mute_voice == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الصوت بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الصوت بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_voice"] = "🔓"
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الصوت_ ☑️'
+return '🚸┇ _مرحبا عزيز��_ \n🚸┇ _تم فتح الصوت_ ☑️'
 
 end
 end
@@ -1478,13 +1478,13 @@ end
 local mute_sticker = data[tostring(target)]["mutes"]["mute_sticker"] 
 if mute_sticker == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الملصقات بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الملصقات بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_sticker"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الملصقات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الملصقات_ ☑️'
 
 end
 end
@@ -1498,13 +1498,13 @@ end
 local mute_sticker = data[tostring(target)]["mutes"]["mute_sticker"]
 if mute_sticker == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الملصقات بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الملصقات بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_sticker"] = "🔓"
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الملصقات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الملصقات_ ☑️'
 
 end
 end
@@ -1520,13 +1520,13 @@ end
 local mute_contact = data[tostring(target)]["mutes"]["mute_contact"] 
 if mute_contact == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _جهات الاتصال بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _جهات الاتصال بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_contact"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل جهات الاتصال_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل جهات الاتصال_ ☑️'
 
 end
 end
@@ -1542,13 +1542,13 @@ end
 local mute_contact = data[tostring(target)]["mutes"]["mute_contact"]
 if mute_contact == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _جهات الاتصال بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _جهات الاتصال بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_contact"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح جهات الاتصال_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح جهات الاتصال_ ☑️'
 
 end
 end
@@ -1564,13 +1564,13 @@ end
 local mute_forward = data[tostring(target)]["mutes"]["mute_forward"] 
 if mute_forward == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التوجيه بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التوجيه بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_forward"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل التوجيه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل التوجيه_ ☑️'
 
 end
 end
@@ -1585,12 +1585,12 @@ end
 
 local mute_forward = data[tostring(target)]["mutes"]["mute_forward"]
 if mute_forward == "🔓" then
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _التوجيه بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _التوجيه بالتأكيد تم فتحها_ ☑️'
 else 
 data[tostring(target)]["mutes"]["mute_forward"] = "🔓"
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح التوجيه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح التوجيه_ ☑️'
 end
 end
 ---------------Mute Location-------------------
@@ -1605,13 +1605,13 @@ end
 local mute_location = data[tostring(target)]["mutes"]["mute_location"] 
 if mute_location == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الموقع بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الموقع بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_location"] = "🔒" 
 save_data(_config.moderation.data, data)
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الموقع_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الموقع_ ☑️'
 
 end
 end
@@ -1627,13 +1627,13 @@ end
 local mute_location = data[tostring(target)]["mutes"]["mute_location"]
 if mute_location == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الموقع بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الموقع بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_location"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الموقع_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الموقع_ ☑️'
 
 end
 end
@@ -1649,13 +1649,13 @@ end
 local mute_document = data[tostring(target)]["mutes"]["mute_document"] 
 if mute_document == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الملفات بالتأكيد تم قفلها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الملفات بالتأكيد تم قفلها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_document"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الملفات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الملفات_ ☑️'
 
 end
 end
@@ -1671,13 +1671,13 @@ end
 local mute_document = data[tostring(target)]["mutes"]["mute_document"]
 if mute_document == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الملفات بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الملفات بالتأكيد تم فتحها_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_document"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الملفات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الملفات_ ☑️'
 
 end
 end
@@ -1693,13 +1693,13 @@ end
 local mute_tgservice = data[tostring(target)]["mutes"]["mute_tgservice"] 
 if mute_tgservice == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الاشعارات بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الاشعارات بالتأكيد تم فتحها_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_tgservice"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الاشعارات_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الاشعارات_ ☑️'
 end
 end
 
@@ -1712,12 +1712,12 @@ end
 local mute_tgservice = data[tostring(target)]["mutes"]["mute_tgservice"]
 if mute_tgservice == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الاشعارات بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الاشعارات بالتأكيد تم فتحها_ ☑️'
 else 
 data[tostring(target)]["mutes"]["mute_tgservice"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الاشعارات بالتأكيد تم فتحها_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الاشعارات بالتأكيد تم فتحها_ ☑️'
 
 end
 end
@@ -1734,13 +1734,13 @@ end
 local mute_keyboard = data[tostring(target)]["mutes"]["mute_keyboard"] 
 if mute_keyboard == "🔒" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الكيبورد بالتأكيد تم قفله_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الكيبورد بالتأكيد تم قفله_ ☑️'
 
 else
 data[tostring(target)]["mutes"]["mute_keyboard"] = "🔒" 
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الكيبورد_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الكيبورد_ ☑️'
 
 end
 end
@@ -1754,13 +1754,13 @@ end
 local mute_keyboard = data[tostring(target)]["mutes"]["mute_keyboard"]
 if mute_keyboard == "🔓" then
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _الكيبورد بالتأكيد تم فتحه_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _الكيبورد بالتأكيد تم فتحه_ ☑️'
 
 else 
 data[tostring(target)]["mutes"]["mute_keyboard"] = "🔓"
 save_data(_config.moderation.data, data) 
 
-return '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الكيبورد_ ☑️'
+return '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الكيبورد_ ☑️'
 
 end
 end
@@ -2252,9 +2252,7 @@ end
 if matches[2] == "التاك" then
 return lock_tag(msg, data, target)
 end
-if matches[2] == "التذكير" then
-return lock_mention(msg, data, target)
-end
+
 if matches[2] == "التعديل" then
 return lock_edit(msg, data, target)
 end
@@ -2287,9 +2285,6 @@ return unlock_link(msg, data, target)
 end
 if matches[2] == "التاك" then
 return unlock_tag(msg, data, target)
-end
-if matches[2] == "التذكير" then
-return unlock_mention(msg, data, target)
 end
 if matches[2] == "التعديل" then
 return unlock_edit(msg, data, target)
@@ -2340,7 +2335,7 @@ lock_bots(msg, data, target),
 lock_webpage(msg, data, target),
 mute_video(msg ,data, target),
 }
-local text =  '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم قفل الكل _ ☑️'
+local text =  '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم قفل الكل _ ☑️'
 tdcli.sendMessage(msg.to.id, msg.id, 1, text, 0, "md")    
 return close_all
 end
@@ -2414,7 +2409,7 @@ unmute_video(msg ,data, target),
 unmute_inline(msg ,data, target)
 }
 
-local text =  '🚸┇ _مرحبآ عزيزي_ \n🚸┇ _تم فتح الكل _ ☑️' 
+local text =  '🚸┇ _مرحبا عزيزي_ \n🚸┇ _تم فتح الكل _ ☑️' 
 tdcli.sendMessage(msg.to.id, msg.id, 1, text, 0, "md")    
 return open_all
 end
@@ -2541,7 +2536,7 @@ end
 if matches[1] == "القوانين" then
 if not data[tostring(chat)]['rules'] then
 
-rules = "🚸┇ _مرحبأ عزيري_ 👋🏻 _القوانين كلاتي_ 👇🏻\n🚸┇ _ممنوع نشر الروابط_ \n🚸┇ _ممنوع التكلم او نشر صور اباحيه_ \n🚸┇ _ممنوع  اعاده توجيه_ \n🚸┇ _ممنوع التكلم بلطائفه_ \n🚸┇ _الرجاء احترام المدراء والادمنيه _😅\n🚸┇ _تابع _@lBOSSl 💤"
+rules = "🚸┇ _مرحبأ عزيري_ 👋🏻 _القوانين كلاتي_ 👇🏻\n🚸┇ _ممنوع نشر الروابط_ \n🚸┇ _ممنوع التكلم او نشر صور اباحيه_ \n🚸┇ _ممنوع  اعاده توجيه_ \n🚸┇ _ممنوع التكلم بلطائفه_ \n🚸┇ _الرجاء احترام المدراء والادمنيه _😅\n🚸┇ _تابع _@verxbot 💤"
 
 else
 rules = "*🚸┇القوانين :*\n"..data[tostring(chat)]['rules']
@@ -2800,9 +2795,9 @@ deleted = deleted + 1
 end
 end
 if deleted == 0 then
-tdcli.sendMessage(msg.to.id, msg.id, 1, '🚸┇ لا يوجد بوتات في المجموعة 💯', 1, 'md')
+tdcli.sendMessage(msg.to.id, msg.id, 1, '🚸┇ لا يوجد بوتات في المجموعة 👮🏻‍♀️', 1, 'md')
 else
-tdcli.sendMessage(msg.to.id, msg.id, 1, '🚸┇ تم طرد [<code>'..deleted..'</code>] بوت من المجموعة 💯', 1, 'html')
+tdcli.sendMessage(msg.to.id, msg.id, 1, '🚸┇ تم طرد [<code>'..deleted..'</code>] بوت من المجموعة 👮🏻‍♀️', 1, 'html')
 end
 end
 tdcli.getChannelMembers(msg.to.id, 0, 'Bots', 200, delbots, nil)
@@ -2818,9 +2813,9 @@ i = i + 1
 end
 end
 if i == 0 then
-tdcli.sendMessage(msg.to.id, msg.id, 1, '🚸┇ لا يوجد بوتات في المجموعة 💯', 1, 'md')
+tdcli.sendMessage(msg.to.id, msg.id, 1, '🚸┇ لا يوجد بوتات في المجموعة 👮🏻‍♀️', 1, 'md')
 else
-tdcli.sendMessage(msg.to.id, msg.id, 1, '🚸┇ عدد البوتات الموجودة [<code>'..i..'</code>] بوت💯',1, 'html')
+tdcli.sendMessage(msg.to.id, msg.id, 1, '🚸┇ عدد البوتات الموجودة [<code>'..i..'</code>] بوت👮🏻‍♀️',1, 'html')
 end
 end
 tdcli.getChannelMembers(msg.to.id, 0, 'Bots', 200, kshf, nil)
@@ -2834,39 +2829,39 @@ if matches[2] == "الردود" then
 return unlock_replay(msg, data, target)
 end
 if matches[2] == "الاذاعه" and is_sudo(msg) then
-redis:set("lock_brod","🔒")
+redis:set("lock_brod","yes")
 return unlock_brod(msg, data, target)
 end
 if matches[2] == "الايدي" then
 lock_id = data[tostring(chat)]['settings']['lock_id']
 if lock_id == "🔒" then
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _امر الايدي شغال بالفعل_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _امر الايدي شغال بالفعل_ ☑️"
 else
 data[tostring(chat)]['settings']['lock_id'] = "🔒"
 save_data(_config.moderation.data, data)
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تم تفعيل امر الايدي_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _تم تفعيل امر الايدي_ ☑️"
 end
 end
 
 if matches[2] == "الترحيب" then
 welcome = data[tostring(chat)]['settings']['welcome']
 if welcome == "🔒" then
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تفعيل الترحيب مفعل مسبقاً_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _تفعيل الترحيب مفعل مسبقاً_ ☑️"
 else
 data[tostring(chat)]['settings']['welcome'] = "🔒"
 save_data(_config.moderation.data, data)
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تم تفعيل الترحيب_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _تم تفعيل الترحيب_ ☑️"
 end
 end
 
 if matches[2] == "التحذير" then
 lock_woring = data[tostring(chat)]['settings']['lock_woring']
 if lock_woring == "🔒" then
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تفعيل التحذير مفعل مسبقاً_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _تفعيل التحذير مفعل مسبقاً_ ☑️"
 else
 data[tostring(chat)]['settings']['lock_woring'] = "🔒"
 save_data(_config.moderation.data, data)
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تم تفعيل التحذير_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _تم تفعيل التحذير_ ☑️"
 end
 end
 end
@@ -2883,33 +2878,33 @@ end
 if matches[2] == "الايدي" then
 lock_id = data[tostring(chat)]['settings']['lock_id']
 if lock_id == "🔓" then
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _الايدي بالتأكيد معطل_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _الايدي بالتأكيد معطل_ ☑️"
 else
 data[tostring(chat)]['settings']['lock_id'] = "🔓"
 save_data(_config.moderation.data, data)
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تم تفعيل امر الايدي_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _تم تعطيل امر الايدي_ ☑️"
 end
 end
 
 if matches[2] == "الترحيب" then
 welcome = data[tostring(chat)]['settings']['welcome']
 if welcome == "🔓" then
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _الترحيب بالتأكيد معطل_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _الترحيب بالتأكيد معطل_ ☑️"
 else
 data[tostring(chat)]['settings']['welcome'] = "🔓"
 save_data(_config.moderation.data, data)
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تم تفعيل الترحيب_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _تم تعطيل الترحيب_ ☑️"
 end
 end
 
 if matches[2] == "التحذير" then
 lock_woring = data[tostring(chat)]['settings']['lock_woring']
 if lock_woring == "🔓" then
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _التحذير بالتأكيد معطل_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _التحذير بالتأكيد معطل_ ☑️"
 else
 data[tostring(chat)]['settings']['lock_woring'] = "🔓"
 save_data(_config.moderation.data, data)
-return "🚸┇ _مرحبآ عزيزي_\n🚸┇ _تم تفعيل التحذير_ ☑️"
+return "🚸┇ _مرحبا عزيزي_\n🚸┇ _تم تعطيل التحذير_ ☑️"
 end
 end
 end
@@ -2922,7 +2917,7 @@ if matches[1] == "الترحيب"  and is_mod(msg) then
 if data[tostring(chat)]['setwelcome']  then
 return data[tostring(chat)]['setwelcome']  
 else
-return "🚸┇ مرحبآً عزيزي\n🚸┇ نورت المجموعه \n🚸┇ تابع : @lBOSSl \n💂🏼‍♀️"
+return "🚸┇ مرحباً عزيزي\n🚸┇ نورت المجموعه \n🚸┇ تابع : @verxbot \n💂🏼‍♀️"
 end
 end
 
@@ -2955,12 +2950,12 @@ administration = load_data(_config.moderation.data)
 if administration[arg.chat_id]['setwelcome'] then
 welcome = administration[arg.chat_id]['setwelcome']
 else
-welcome = "🚸┇ مرحبآً عزيزي\n🚸┇ نورت المجموعة \n🚸┇ تابع : @lBOSSl\n💂🏼‍♀️"
+welcome = "🚸┇ مرحباً عزيزي\n🚸┇ نورت المجموعة \n🚸┇ تابع : @verxbot\n💂🏼‍♀️"
 end
 if administration[tostring(arg.chat_id)]['rules'] then
 rules = administration[arg.chat_id]['rules']
 else
-rules = "🚸┇ _مرحبأ عزيري_ 👋🏻 _القوانين كلاتي_ 👇🏻\n🚸┇ _ممنوع نشر الروابط_ \n🚸┇ _ممنوع التكلم او نشر صور اباحيه_ \n🚸┇ _ممنوع  اعاده توجيه_ \n🚸┇ _ممنوع التكلم بلطائفه_ \n🚸┇ _الرجاء احترام المدراء والادمنيه _😅\n🚸┇ _تابع _@lBOSSl 💤\n💂🏼‍♀️"
+rules = "🚸┇ _مرحبأ عزيري_ 👋🏻 _القوانين كلاتي_ 👇🏻\n🚸┇ _ممنوع نشر الروابط_ \n🚸┇ _ممنوع التكلم او نشر صور اباحيه_ \n🚸┇ _ممنوع  اعاده توجيه_ \n🚸┇ _ممنوع التكلم بلطائفه_ \n🚸┇ _الرجاء احترام المدراء والادمنيه _😅\n🚸┇ _تابع _@verxbot 💤\n💂🏼‍♀️"
 
 end
 if data.username_ then
