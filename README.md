@@ -48,7 +48,7 @@ chmod +x install.sh
 @lBOSSl
 ```
 ##  [🚸┇انتظر قليلا ثم يطلب منك ايدي وتوكن خلي ايديك والتوكن مبروك عليك افضل بوت بالتلكرام](https://telegram.me/llDEV1ll)
-# <p align="center"> [🚸┇  للاستفسار راسلني ] (https://telegram.me/TH3BOSS)
+# <p align="center"> 🚸┇  للاستفسار راسلني 
 
   [Mohammed Hisham](https://telegram.me/TH3BOSS) <br>
   
