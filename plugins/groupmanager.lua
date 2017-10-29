@@ -156,7 +156,7 @@ message = '🚸┇ *قائمه الادمنيه :*\n'
 
 for k,v in pairs(data[tostring(msg.to.id)]['mods'])
 do
-message = message ..i.. '- '..v..' [' ..k.. '] \n'
+message = message ..i.. '- '..check_markdown(v)..' [' ..k.. '] \n'
 i = i + 1
 end
 return message
@@ -175,7 +175,7 @@ return  "🚸┇ _ لا يوجد هنا مدير ⚙️_"
 end
 message = '🚸┇ *قائمه المدراء :*\n'
 for k,v in pairs(data[tostring(msg.to.id)]['owners']) do
-message = message ..i.. '- '..v..' [' ..k.. '] \n'
+message = message ..i.. '- '..check_markdown(v)..' [' ..k.. '] \n'
 i = i + 1
 end
 return message
