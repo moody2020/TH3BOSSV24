@@ -1,4 +1,4 @@
---Begin Utils.lua BY @TH3BOSS :)
+--Begin Utils.lua BY TH3BOSS :)
  local clock = os.clock
 function sleep(time)  -- seconds
   local t0 = clock()
@@ -142,7 +142,7 @@ tdcli_function ({
   }, config_owner, {user_id=owner_id})
    end
 end
-    return tdcli.sendMessage(msg.to.id, msg.id, 0, "🚸┇ _تمت ترقية جميع المشرفين على المجموعة وأصبح منشئ المجموعة الآن مالك المجموعة_", 0, "md")
+    return tdcli.sendMessage(msg.to.id, msg.id, 0, "ðŸš¸â”‡ _ØªÙ…Øª ØªØ±Ù‚ÙŠØ© Ø¬Ù…ÙŠØ¹ Ø§Ù„Ù…Ø´Ø±ÙÙŠÙ† Ø¹Ù„Ù‰ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø© ÙˆØ£ØµØ¨Ø­ Ù…Ù†Ø´Ø¦ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø© Ø§Ù„Ø¢Ù† Ù…Ø§Ù„Ùƒ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ø©_", 0, "md")
  end
 tdcli.getChannelMembers(msg.to.id, 0, 'Administrators', 200, config_cb, {chat_id=msg.to.id})
 end
@@ -420,7 +420,7 @@ local _nl, ctrl_chars = string.gsub(user, '%c', '')
 local _nl, real_digits = string.gsub(user, '%d', '')
 if user then
 if string.len(user) > 250 or ctrl_chars > 250 or real_digits > 250 then
- return "📛لن اعرض الاسم لانه سبام 📛"
+ return "ðŸ“›Ù„Ù† Ø§Ø¹Ø±Ø¶ Ø§Ù„Ø§Ø³Ù… Ù„Ø§Ù†Ù‡ Ø³Ø¨Ø§Ù… ðŸ“›"
 else
 return user
 end
@@ -692,20 +692,20 @@ end
     local i = 1
   if not data[tostring(chat_id)] then
 
-    return '🚸┇*  المجموعه ليست مضافه*'
+    return 'ðŸš¸â”‡*  Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ù‡ Ù„ÙŠØ³Øª Ù…Ø¶Ø§ÙÙ‡*'
    
   end
   -- determine if table is empty
   if next(data[tostring(chat_id)]['banned']) == nil then --fix way
 
-					return "🚸┇*  لايوجد أعضاء محظورين في هذه المجموعه*"
+					return "ðŸš¸â”‡*  Ù„Ø§ÙŠÙˆØ¬Ø¯ Ø£Ø¹Ø¶Ø§Ø¡ Ù…Ø­Ø¸ÙˆØ±ÙŠÙ† ÙÙŠ Ù‡Ø°Ù‡ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ù‡*"
               
 				end
 
-   message = '_🚸┇  قائمه الاعضاء المحظورين :_\n'
+   message = 'ðŸš¸â”‡_  Ù‚Ø§Ø¦Ù…Ù‡ Ø§Ù„Ø§Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ù…Ø­Ø¸ÙˆØ±ÙŠÙ† :_\n'
      
   for k,v in pairs(data[tostring(chat_id)]['banned']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+    message = message ..i.. '- '..check_markdown(v)..' âž£ (' ..k.. ') \n'
    i = i + 1
 end
   return message
@@ -717,19 +717,19 @@ end
     local i = 1
   if not data[tostring(chat_id)] then
 
-    return '🚸┇*  المجموعه ليست مضافه*'
+    return 'ðŸš¸â”‡*  Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ù‡ Ù„ÙŠØ³Øª Ù…Ø¶Ø§ÙÙ‡*'
    
   end
   -- determine if table is empty
   if next(data[tostring(chat_id)]['is_silent_users']) == nil then --fix way
 
-					return "🚸┇*  لايوجد اعضاء مكتومين في هذه المجموعه*"
+					return "ðŸš¸â”‡*  Ù„Ø§ÙŠÙˆØ¬Ø¯ Ø§Ø¹Ø¶Ø§Ø¡ Ù…ÙƒØªÙˆÙ…ÙŠÙ† ÙÙŠ Ù‡Ø°Ù‡ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ù‡*"
              end
 				
-   message = '_🚸┇  قائمه الاعضاء المكتومين :_\n'
+   message = '_ðŸš¸â”‡  Ù‚Ø§Ø¦Ù…Ù‡ Ø§Ù„Ø§Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ù…ÙƒØªÙˆÙ…ÙŠÙ† :_\n'
     
   for k,v in pairs(data[tostring(chat_id)]['is_silent_users']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+    message = message ..i.. '- '..check_markdown(v)..' âž£ (' ..k.. ') \n'
    i = i + 1
 end
   return message
@@ -740,7 +740,7 @@ function whitelist(chat_id)
     local data = load_data(_config.moderation.data)
     local i = 1
   if not data[tostring(chat_id)] then
-    return '🚸┇*  المجموعه ليست مضافه*'
+    return 'ðŸš¸â”‡*  Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ù‡ Ù„ÙŠØ³Øª Ù…Ø¶Ø§ÙÙ‡*'
    
   end
   if not data[tostring(chat_id)]['whitelist'] then
@@ -750,14 +750,14 @@ function whitelist(chat_id)
   -- determine if table is empty
   if next(data[tostring(chat_id)]['whitelist']) == nil then --fix way
 
-     return "🚸┇*  لايوجد اعضاء مميزين ضمن القائمه في هذه المجموعه*"
+     return "ðŸš¸â”‡*  Ù„Ø§ÙŠÙˆØ¬Ø¯ Ø§Ø¹Ø¶Ø§Ø¡ Ù…Ù…ÙŠØ²ÙŠÙ† Ø¶Ù…Ù† Ø§Ù„Ù‚Ø§Ø¦Ù…Ù‡ ÙÙŠ Ù‡Ø°Ù‡ Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ù‡*"
              
 				end
 
-   message = '_🚸┇  قائمه الاعضاء المميزين :_\n'
+   message = '_ðŸš¸â”‡  Ù‚Ø§Ø¦Ù…Ù‡ Ø§Ù„Ø§Ø¹Ø¶Ø§Ø¡ Ø§Ù„Ù…Ù…ÙŠØ²ÙŠÙ† :_\n'
     
   for k,v in pairs(data[tostring(chat_id)]['whitelist']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+    message = message ..i.. '- '..check_markdown(v)..' âž£ (' ..k.. ') \n'
    i = i + 1
 end
   return message
@@ -772,12 +772,12 @@ end
     save_data(_config.moderation.data, data)
   end
   if next(data['gban_users']) == nil then --fix way
-					return "🚸┇*  لايوجد اعضاء محظورين عام*"
+					return "ðŸš¸â”‡*  Ù„Ø§ÙŠÙˆØ¬Ø¯ Ø§Ø¹Ø¶Ø§Ø¡ Ù…Ø­Ø¸ÙˆØ±ÙŠÙ† Ø¹Ø§Ù…*"
 				end
-   message = '_🚸┇  قائمه المحظورين عام :_\n'
+   message = '_ðŸš¸â”‡  Ù‚Ø§Ø¦Ù…Ù‡ Ø§Ù„Ù…Ø­Ø¸ÙˆØ±ÙŠÙ† Ø¹Ø§Ù… :_\n'
    
   for k,v in pairs(data['gban_users']) do
-    message = message ..i.. '- '..v..' [' ..k.. '] \n'
+    message = message ..i.. '- '..check_markdown(v)..' âž£ (' ..k.. ') \n'
    i = i + 1
 end
   return message
@@ -792,13 +792,13 @@ end
     end
   if not data[tostring(msg.chat_id_)] then
 
-    return '🚸┇*  المجموعه ليست مضافه*'
+    return 'ðŸš¸â”‡*  Ø§Ù„Ù…Ø¬Ù…ÙˆØ¹Ù‡ Ù„ÙŠØ³Øª Ù…Ø¶Ø§ÙÙ‡*'
    
   end
   -- determine if table is empty
   if next(data[tostring(msg.chat_id_)]['filterlist']) == nil then --fix way
 
-    return "_🚸┇  قائمه الكلمات الممنوعه فارغه_"
+    return "_ðŸš¸â”‡  Ù‚Ø§Ø¦Ù…Ù‡ Ø§Ù„ÙƒÙ„Ù…Ø§Øª Ø§Ù„Ù…Ù…Ù†ÙˆØ¹Ù‡ ÙØ§Ø±ØºÙ‡_"
      
   end
   if not data[tostring(msg.chat_id_)]['filterlist'] then
@@ -806,7 +806,7 @@ end
     save_data(_config.moderation.data, data)
     end
 
-       filterlist = '_🚸┇  قائمه الكلمات الممنوعه :_\n'
+       filterlist = '_ðŸš¸â”‡  Ù‚Ø§Ø¦Ù…Ù‡ Ø§Ù„ÙƒÙ„Ù…Ø§Øª Ø§Ù„Ù…Ù…Ù†ÙˆØ¹Ù‡ :_\n'
     
  local i = 1
    for k,v in pairs(data[tostring(msg.chat_id_)]['filterlist']) do
