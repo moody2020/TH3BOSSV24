@@ -4,7 +4,21 @@ local data = load_data(_config.moderation.data)
 local chat = msg.to.id
 local user = msg.from.id
 local is_channel = msg.to.type == "channel"
-
+if not redis:get('autodeltime') then
+	redis:setex('autodeltime', 14400, true)
+     run_bash("rm -rf ~/.telegram-cli/data/sticker/*")
+     run_bash("rm -rf ~/.telegram-cli/data/photo/*")
+     run_bash("rm -rf ~/.telegram-cli/data/animation/*")
+     run_bash("rm -rf ~/.telegram-cli/data/video/*")
+     run_bash("rm -rf ~/.telegram-cli/data/audio/*")
+     run_bash("rm -rf ~/.telegram-cli/data/voice/*")
+     run_bash("rm -rf ~/.telegram-cli/data/temp/*")
+     run_bash("rm -rf ~/.telegram-cli/data/thumb/*")
+     run_bash("rm -rf ~/.telegram-cli/data/document/*")
+     run_bash("rm -rf ~/.telegram-cli/data/profile_photo/*")
+     run_bash("rm -rf ~/.telegram-cli/data/encrypted/*")
+	 run_bash("rm -rf ./data/photos/*")
+end
 if msg.from.username then -- فانكشن اليوزرنيم
 usernamex = "@"..(msg.from.username or "---")
 member = "@"..(msg.from.username or "---")
