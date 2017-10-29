@@ -1,6 +1,3 @@
--- BY Mohammed hisham
--- BY @TH3BOSS
--- BY @llDEV1ll
 
 tdcli = dofile('./tg/tdcli.lua')
 serpent = (loadfile "./libs/serpent.lua")()
@@ -106,7 +103,7 @@ end
 	"zhrf",
 
 	},
-    sudo_users = {{SUDO,sudouser}},
+    sudo_users = {{SUDO,check_markdown(sudouser)}},
 	SUDO = SUDO,
 	sudouser = sudouser,
 	bot_name = botname,
@@ -196,7 +193,7 @@ function load_plugins()
 			print('\27[31m'..err..'\27[39m')
 		end
 	end
-	print('\n'..#config.enabled_plugins..' Plugins Are Active\n\nStarting TH3BOSS V22 TH3B3ST  Robot...\n')
+	print('\n'..#config.enabled_plugins..' Plugins Are Active\n\nStarting TH3BOSS V22 Robot...\n')
 end
 
 load_plugins()
