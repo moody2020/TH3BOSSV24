@@ -1,7 +1,7 @@
 
 do 
 
-ver = '20'
+th3boss = '22'
 
 local function plugin_enabled( name ) 
   for k,v in pairs(_config.enabled_plugins) do 
@@ -238,11 +238,11 @@ end
 end
 
 if (matches[1] == 'source' or matches[1] == 'السورس') and is_sudo(msg) then
-return "🃏 اصدار السورس : "..ver
+return "🃏 اصدار السورس : "..th3boss
 end 
 
 if (matches[1] == 'تحديث السورس' or matches[1] == 'update') and is_sudo(msg) then
-if (tonumber(msg.from.id) ~= tonumber(SUDO) or tonumber(msg.from.id) ~= 60809019 ) then return "☔️هذا الاوامر للمطور الاساسي فقط 🚸┇" end
+if tonumber(msg.from.id) ~= tonumber(SUDO) then return "☔️هذا الاوامر للمطور الاساسي فقط 🚸┇" end
 
 
 tdcli.sendMessage(msg.to.id, msg.id_,1, '🛠 جاري تحديث السورس ...', 1, 'html')
@@ -293,4 +293,4 @@ return {
   --privileged = true 
 } 
 
-end 
+end
