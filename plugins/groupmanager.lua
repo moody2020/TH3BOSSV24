@@ -1824,7 +1824,7 @@ end
 end
 
 local mutes = data[tostring(target)]["mutes"]
-text = "👮🏾┇<code> اعدادات الوسائط:</code>"
+text = "👮🏾┇` اعدادات الوسائط:`"
 .."\n\n🚸┇ قفل المتحركه : "..mutes.mute_gif
 .."\n🚸┇ قفل الدردشه : "..mutes.mute_text
 .."\n🚸┇ قفل الانلاين : "..mutes.mute_inline
@@ -1842,7 +1842,7 @@ text = "👮🏾┇<code> اعدادات الوسائط:</code>"
 .."\n🚸┇ قفل الكيبورد : "..mutes.mute_keyboard
 .."\n🚸┇ مطور الـسـورس : "..sudouser.."\n👨🏽‍🔧"
 
-return  tdcli.sendMessage(msg.to.id, msg.id, 0,text , 0, "html")
+return  tdcli.sendMessage(msg.to.id, msg.id, 0,text , 0, "md")
 end
 
 function group_settings(msg, target) 	
@@ -1970,7 +1970,7 @@ local settings = data[tostring(target)]["settings"]
 local mutes = data[tostring(target)]["mutes"]
 
 
-list_settings = "👮🏾┇<code> اعدادات المجموعه :</code> "
+list_settings = "👮🏾┇` اعدادات المجموعه :` "
 .."\n🚸┇ قفل التعديل : "..settings.lock_edit
 .."\n🚸┇ قفل الروابط : "..settings.lock_link
 .."\n🚸┇ قفل الاضافه : "..settings.lock_join
@@ -1984,7 +1984,7 @@ list_settings = "👮🏾┇<code> اعدادات المجموعه :</code> "
 .."\n🚸┇ عدد التكرار : "..settings.num_msg_max
 
 
-list_mutes = "🗯┇<code> اعدادات الوسائط:</code>"
+list_mutes = "🗯┇` اعدادات الوسائط:`"
 .."\n🚸┇ قفل المتحركه : "..mutes.mute_gif
 --.."\n🚸┇ قفل الدردشه : "..mutes.mute_text
 .."\n🚸┇ قفل الانلاين : "..mutes.mute_inline
@@ -2001,7 +2001,7 @@ list_mutes = "🗯┇<code> اعدادات الوسائط:</code>"
 .."\n🚸┇ قفل الاشعارات : "..mutes.mute_tgservice
 -- .."\n🚸┇ قفل الكيبورد : "..mutes.mute_keyboard
 
-.."\n\n🗯┇<code> اعدادات اخرى :</code> "
+.."\n\n🗯┇` اعدادات اخرى :` "
 .."\n🚸┇ تفعيل الترحيب : "..settings.welcome
 .."\n🚸┇ تفعيل الردود : "..settings.replay
 .."\n🚸┇ تفعيل التحذير : "..settings.lock_woring
@@ -2009,7 +2009,7 @@ list_mutes = "🗯┇<code> اعدادات الوسائط:</code>"
 
 .."\n🚸┇ مطور الـسـورس : "..sudouser.."\n👨🏽‍🔧"
 
-return  tdcli.sendMessage(msg.to.id, 1, 0,list_settings.."\n\n"..list_mutes , 0, "html")
+return  tdcli.sendMessage(msg.to.id, 1, 0,list_settings.."\n\n"..list_mutes , 0, "md")
 end
 
 local function moody(msg, matches)
