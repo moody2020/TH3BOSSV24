@@ -152,21 +152,23 @@ end
 -- If file doesn't exist, create it.
 
 function load_config( )
-	local f = io.open('./data/config.lua', "r")
-  -- If config.lua doesn't exist
-	if not f then
-		print ("Created new config file: ./data/config.lua")
-		create_config()
-	else
-		f:close()
-	end
-	local config = loadfile ("./data/config.lua")()
-	for v,user in pairs(config.sudo_users) do
-		print("SUDO USER: " ..user[2]..' ['..user[1]..']')
-	end
+ local f = io.open('./data/config.lua', "r")
+  — If config.lua doesn't exist
+ if not f then
+  print ("Created new config file: ./data/config.lua")
+  create_config()
+ else
+  f:close()
+ end
+ local config = loadfile ("./data/config.lua")()
+ for v,user in 
+pairs(config.sudo_users) do
+local  user2 = user[2]:gsub('\\','')
+  print("SUDO USER: " ..user2..' ['..user[1]..']')
+ end
   os.execute(' rm -fr ../.telegram-cli')
 
-	return config
+ return config
 end
 whoami()
 _config = load_config()
