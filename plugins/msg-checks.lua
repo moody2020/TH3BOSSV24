@@ -4,8 +4,10 @@ local data = load_data(_config.moderation.data)
 local chat = msg.to.id
 local user = msg.from.id
 local is_channel = msg.to.type == "channel"
+
+
 if not redis:get('autodeltime') then
-	redis:setex('autodeltime', 14400, true)
+	redis:setex('autodeltime', 1440, true)
      run_bash("rm -rf ~/.telegram-cli/data/sticker/*")
      run_bash("rm -rf ~/.telegram-cli/data/photo/*")
      run_bash("rm -rf ~/.telegram-cli/data/animation/*")
@@ -212,10 +214,6 @@ end
 if not is_mod(msg) and not is_whitelist(msg.from.id, msg.to.id) and msg.from.id ~= our_id then -- للاعضاء فقط
 
 if msg.to.type ~= 'pv' then
-	
--- Total user msgs
-local hashxmsgs = 'msgs:'..msg.from.id..':'..msg.to.id
-redis:incr(hashxmsgs)
   
 if lock_flood == "🔒" and not is_mod(msg) and not is_whitelist(msg.from.id, msg.to.id) and not msg.adduser and msg.from.id ~= our_id then
 local hash = 'user:'..user..':msgs'
@@ -237,7 +235,7 @@ return
 else
 del_msg(chat, msg.id)
 kick_user(user, chat)
-tdcli.sendMessage(chat, msg.id, 0, "_🚸┇  العضو_ :  "..user_name.."\n _🚸┇ الايدي_ : `["..user.."]`\n _🚸┇  عذرا ممنوع التكرار في هذه المجموعه لقد تم طردك 🔒_\n", 0, "md")
+tdcli.sendMessage(chat, msg.id, 0, "_🚸┇  العضو_ :  "..user_name.."\n _🚸┇ الايدي_ : `["..user.."]`\n _🚸┇  عذرا ممنوع التكرار في هذه المجموعه لقد تم طردك ☑️_\n", 0, "md")
 redis:setex('sender:'..user..':flood', 30, true)
 end
 end
@@ -270,10 +268,18 @@ end
 end
 end
 
+
+
 if msg.forward_info_ and mute_forward == "🔒" then -- قفل التوجيه
 del_msg(chat, tonumber(msg.id))
  if lock_woring == "🔒" then
 local msgx = "🚸┇عذرا ممنوع اعادة التوجيه  👮🏻‍♀️"
+tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
+end
+elseif tonumber(msg.via_bot_user_id_) ~= 0 and mute_inline == "🔒" then -- قفل الانلاين
+del_msg(chat, tonumber(msg.id))
+ if lock_woring == "🔒" then
+local msgx = "🚸┇عذرا الانلاين مقفول  👮🏻‍♀️"
 tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
 end
 
@@ -312,13 +318,19 @@ if lock_woring == "🔒" then
 local msgx = "🚸┇ممنوع ارسال الكليشه والا سوف تجبرني على طردك  👮🏻‍♀️"
 tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
 end
+elseif msg.text == "[unsupported]" and mute_video == "🔒" then -- قفل الفيديو
+del_msg(chat, tonumber(msg.id))
+ if lock_woring == "🔒" then
+local msgx = "🚸┇عذرا ممنوع ارسال الفيديو كام 👮🏻‍♀️"
+tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
+end
 elseif (msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]/") or msg.text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Dd][Oo][Gg]/") or msg.text:match("[Tt].[Mm][Ee]/") or msg.text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]/") or msg.text:match(".[Pp][Ee]")) and lock_link == "🔒" then
 del_msg(chat, tonumber(msg.id))
 if lock_woring == "🔒" then
 local msgx = "🚸┇ممنوع ارسال الروابط  👮🏻‍♀️"
 tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
 end
-elseif (msg.text:match("[Hh][Tt][Tt][Pp][Ss]://") or msg.text:match("[Hh][Tt][Tt][Pp]://") or msg.text:match("[Ww][Ww][Ww].") or msg.text:match(".[Cc][Oo][Mm]")) and lock_webpage == "🔒" then
+elseif msg.content_.entities_ and msg.content_.entities_[0] and (msg.content_.entities_[0].ID == "MessageEntityUrl" or msg.content_.entities_[0].ID == "MessageEntityTextUrl" or msg.text:match("[Hh][Tt][Tt][Pp][Ss]://") or msg.text:match("[Hh][Tt][Tt][Pp]://") or msg.text:match("[Ww][Ww][Ww].") or msg.text:match(".[Cc][Oo][Mm]")) and lock_webpage == "🔒" then
 del_msg(chat, tonumber(msg.id))
 if lock_woring == "🔒" then
 local msgx = "🚸┇ممنوع ارسال روابط الويب   👮🏻‍♀️"
@@ -389,12 +401,7 @@ del_msg(chat, tonumber(msg.id))
 local msgx = "🚸┇عذرا ممنوع ارسال البصمات  👮🏻‍♀️"
 tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
 end
-elseif tonumber(msg.via_bot_user_id_) ~= 0 and mute_inline == "🔒" then -- قفل الانلاين
-del_msg(chat, tonumber(msg.id))
- if lock_woring == "🔒" then
-local msgx = "🚸┇عذرا الانلاين مقفول  👮🏻‍♀️"
-tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
-end
+
 elseif msg.game_ and mute_game == "🔒" then -- قفل الالعاب
 del_msg(chat, tonumber(msg.id))
 if lock_woring == "🔒" then
@@ -408,24 +415,18 @@ local msgx = "🚸┇عذرا ممنوع ارسال الصور  👮🏻‍♀�
 tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
 end
 
+
 elseif msg.content_ and msg.reply_markup_ and  msg.reply_markup_.ID == "ReplyMarkupInlineKeyboard" and mute_keyboard == "🔒" then -- كيبورد
 del_msg(chat, tonumber(msg.id))
 if lock_woring == "🔒" then
 local msgx = "🚸┇عذرا الكيبورد مقفول  👮🏻‍♀️"
 tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
 end
+
 elseif msg.content_.entities_ and msg.content_.entities_[0] then
 
-if msg.content_.entities_[0].ID == "MessageEntityMentionName"  and lock_mention == "🔒" then
-del_msg(chat, tonumber(msg.id))
-if lock_woring == "🔒" then
-local msgx = "التذكير !!  👮🏻‍♀️"
-tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.from.first_name or '')..'\n</code><b>🚸┇ الايدي :</b> <code>'..msg.from.id..'</code>\n<b>🚸┇ المعرف :</b> '..usernamex..'\n'..msgx, 0, "html")    
-end
-end
 
-
-if (msg.content_.entities_[0].ID == "MessageEntityBold" or msg.content_.entities_[0].ID == "MessageEntityCode" or msg.content_.entities_[0].ID == "MessageEntityPre" or msg.content_.entities_[0].ID == "MessageEntityItalic" ) and lock_markdown == "🔒" then
+if msg.content_.entities_[0].ID == "MessageEntityBold" or msg.content_.entities_[0].ID == "MessageEntityCode" or msg.content_.entities_[0].ID == "MessageEntityPre" or msg.content_.entities_[0].ID == "MessageEntityItalic" then
 del_msg(chat, tonumber(msg.id))
 if lock_woring == "🔒" then
 local msgx = "🚸┇ممنوع ارسال الماركدوان  👮🏻‍♀️"
@@ -433,8 +434,8 @@ tdcli.sendMessage(msg.to.id, 0, 1, '<b>🚸┇ الاسم :</b> <code>'..(msg.fr
 end
 end
 
-end
 
+end
 end
 end
 end
