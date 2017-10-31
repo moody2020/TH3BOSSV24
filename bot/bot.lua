@@ -111,7 +111,7 @@ end
 	info_text = "🚸┇ ᗯEᒪᑕOᗰE ᗰY ᗪEᗩᖇ\n\n🚸┇ SᑌᗪO : @TH3BOSS \n\n🚸┇ TH3BOSS ↭ Final Version 22 \n\n🚸┇ ᑕᕼ ↭ @llDEV1ll\n\n",
 
   }
-  file = io.open("launch.sh", "w")
+  file = io.open("TH3BOSS.sh", "w")
 file:write([[
 token="]]..token..[["
 if [ ! -f ./tg/tgcli ]; then
