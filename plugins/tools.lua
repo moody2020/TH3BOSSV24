@@ -491,7 +491,7 @@ tdcli.sendMessage(matches[2], 0, 1, "تم تعطيل البوت من قبل ال
 tdcli.changeChatMemberStatus(matches[2], our_id, 'Left', dl_cb, nil)
 return '_المجموعه_ *'..matches[2]..'* _تم تعطيلها_'
 end
-if matches[1] == 'المطور' then
+if matches[1] == '=' then
 tdcli.sendMessage(msg.to.id, msg.id, 1, _config.info_text, 1, 'html')
 end
 if matches[1] == 'المدراء' and is_sudo(msg) then
@@ -846,7 +846,7 @@ patterns = {
 "^(المطورين)$",
 "^(رفع مطور) (.*)$",
 "^(تنزيل مطور) (.*)$",
-"^(المطور)$",
+"^(=)$",
 "^(قائمه المجموعات)$",
 "^(المجموعات)$",
 "^(رسائلي)$",
