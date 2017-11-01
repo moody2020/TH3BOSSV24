@@ -105,7 +105,7 @@ end
 	},
     sudo_users = {{SUDO,check_markdown(sudouser)}},
 	SUDO = SUDO,
-	sudouser = sudouser,
+	sudouser = check_markdown(sudouser),
 	bot_name = botname,
     moderation = {data = './data/moderation.json'},
 	info_text = "🚸┇ ᗯEᒪᑕOᗰE ᗰY ᗪEᗩᖇ\n\n🚸┇ SᑌᗪO : @TH3BOSS \n\n🚸┇ TH3BOSS ↭ Final Version 22 \n\n🚸┇ ᑕᕼ ↭ @llDEV1ll\n\n",
