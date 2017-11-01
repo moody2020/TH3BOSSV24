@@ -179,7 +179,7 @@ local function run(msg, matches)
   for k, v in pairs( plugins_names( )) do  
       -- get the name 
       v = string.match (v, "(.*)%.lua") 
-      		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, "./plugins/"..v..".lua", '🚸┇┇ الملف مقدم من قناه  ﭬــﮧـيـﮧـر ¦ֆ \n🚸┇┇ تابع قناة السورس @verxbot\n👨🏽‍🔧', dl_cb, nil)
+      		tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, "./plugins/"..v..".lua", '🚸┇ الملف مقدم من قناه الـزعـيـم\n🚸┇ تابع قناه السورس @lBOSSl\n👨🏽‍🔧', dl_cb, nil)
 
   end 
 else
@@ -225,7 +225,7 @@ local pfile = "./data/moderation.json"
 if (filename:lower():match('.json$')) then
 file_dl(doc_id)
 os.rename(pathf, pfile)
-tdcli.sendMessage(msg.to.id, msg.id_,1, '<b>ملف النسخة الاحتياطية \n </b> <code>moderation.json</code> <b> تم رفعه في السورس</b>', 1, 'html')
+tdcli.sendMessage(msg.to.id, msg.id_,1, '<b>ملف النسخه الاحتياطيه \n </b> <code>moderation.json</code> <b> تم رفعه في السورس</b>', 1, 'html')
 else
 tdcli.sendMessage(msg.to.id, msg.id_, 1, '_الملف ليس بصيغه json._', 1, 'md')
 end
