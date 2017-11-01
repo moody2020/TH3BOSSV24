@@ -42,7 +42,7 @@ return [[🚸┇ مرحبا انا بوت اختصاصي  🎖
 🚸┇ اقوم بحمايه المجموعات حتى 20k 
 🚸┇ المطور فقط يستطيع تفعيلي في المجموعات ⇩⇩
 🚸┇ او اترك رسالتك هنا وسوف يرد عليك المطور
-🚸┇ مطور البوت : ]]..sudouser..[[
+🚸┇ مطور البوت : ]]..check_markdown(sudouser)..[[
 👨🏽‍🔧]]
 end
 
@@ -60,7 +60,7 @@ return "📭 ┇ _حسنأ الان ارسل كلمة الرد _🍃\n"
 end
 
 if w=="اضف رد للكل" then
-if not is_sudo(msg) then return"🚸┇ للمطورين فقط ! 🖇" end
+if tonumber(msg.from.id) ~= tonumber(SUDO) then return "🚸┇ هذا الاوامر للمطور الاساسي فقط 🖇" end
 redis:set('addrdall:'..msg.from.id, true)
 redis:del("allreplay1")
 redis:del("allrepaly2")
@@ -122,7 +122,7 @@ end
 end
 
 if w == 'مسح الردود العامه' then
-if not is_sudo(msg) then return"🚸┇ للمطورين فقط ! 🖇" end
+if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
 
 if next(data['replay_all']) == nil then
 return  " عذراً 🌝".. ":{" ..msg.from.first_name.. "}:".."\n".."\n".." 🚸┇ قائمة الردود العامه فارغة بالفعل 🖇 "
@@ -136,10 +136,10 @@ end
 end
 
 if w == 'مسح رد عام' then
-if not is_sudo(msg) then return"🚸┇ للمطورين فقط ! 🖇" end
+if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
 
 if not data['replay_all'][ww] then
-return '🚸┇ هذا الرد ليس مضاف في قائمه الردود 🖇'
+return '🚸┇ هذا الرد ليش مضاف في قائمه الردود 🖇'
 else
 data['replay_all'][ww] = nil
 save_data(_config.moderation.data, data)
@@ -151,7 +151,7 @@ if w == 'مسح رد' then
 if not is_owner(msg) then return"🚸┇ للمدراء فقط ! 🖇" end
 
 if not data[tostring(msg.to.id)]['replay'][ww] then
-return '🚸┇ هذا الرد ليس مضاف في قائمه الردود 🖇'
+return '🚸┇ هذا الرد ليش مضاف في قائمه الردود 🖇'
 else
 data[tostring(msg.to.id)]['replay'][ww] = nil
 save_data(_config.moderation.data, data)
@@ -231,7 +231,7 @@ return [[
 🚸┇ - https://telegram.org/deactivate
 ]] 
 elseif w== 'ايدي' and msg.to.type == 'pv' then
-return "🚸┇ ايدي البوت : "..msg.to.id.. "\n\n 🚸┇ ايدي حسابك : "..msg.from.id.. "\n مـطـور الـسـورس\n الزعيم محمد  > @TH3BOSS 🚸┇ "
+return "🚸┇    ايدي البوت : "..msg.to.id.. "\n\n 🚸┇    ايدي حسابك : "..msg.from.id.. "\n مـطـور الـسـورس\n الزعيم محمدس  > @TH3BOSS 🚸┇ "
 elseif w=="رتبتي" then
 local rank
 if is_sudo(msg) then
@@ -250,7 +250,7 @@ end
 ------------[lock and unlock reply in pv ]---------
 
 if (msg.to.type == "pv") and not is_sudo(msg) then
-tdcli.sendMessage(msg.to.id, 0, 1, " 🚸┇ TEAM TH3BOSS V22 \n\n🚸┇ CH - TH3BOSS : @llDEV1ll \n\n 🚸┇DEV : @TH3BOSS\n 🚸┇DEV BOT : @TH3BOSSBOT", 1, 'html')
+tdcli.sendMessage(msg.to.id, 0, 1, " 🚸┇ TEAM TH3BOSS V22 \n\n🔹 🚸┇DEV : @TH3BOSS\n 🚸┇DEV BOT : @TH3BOSSBOT", 1, 'html')
 local pvmsg ="🚸┇ ألاسم :"..name_user.."\n 🚸┇ الايدي : ["..msg.from.id.."]\n 🚸┇ ألمعرف : ["..usernamex.."]\n 🚸┇ الرسالة: \n\n"..msg.text
 
 tdcli.sendMessage(SUDO, 0, 1, pvmsg, 1, 'md')
