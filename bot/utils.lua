@@ -703,7 +703,7 @@ end
    message = '🚸┇_  قائمه الاعضاء المحظورين :_\n'
      
   for k,v in pairs(data[tostring(chat_id)]['banned']) do
-    message = message ..i.. '- '..check_markdown(v)..' ➣ (' ..k.. ') \n'
+    message = message ..i.. '- '..v..' ➣ (' ..k.. ') \n'
    i = i + 1
 end
   return message
@@ -727,7 +727,7 @@ end
    message = '_🚸┇  قائمه الاعضاء المكتومين :_\n'
     
   for k,v in pairs(data[tostring(chat_id)]['is_silent_users']) do
-    message = message ..i.. '- '..check_markdown(v)..' ➣ (' ..k.. ') \n'
+    message = message ..i.. '- '..v..' ➣ (' ..k.. ') \n'
    i = i + 1
 end
   return message
@@ -755,7 +755,7 @@ function whitelist(chat_id)
    message = '_🚸┇  قائمه الاعضاء المميزين :_\n'
     
   for k,v in pairs(data[tostring(chat_id)]['whitelist']) do
-    message = message ..i.. '- '..check_markdown(v)..' ➣ (' ..k.. ') \n'
+    message = message ..i.. '- '..v..' ➣ (' ..k.. ') \n'
    i = i + 1
 end
   return message
@@ -808,7 +808,7 @@ end
     
  local i = 1
    for k,v in pairs(data[tostring(msg.chat_id_)]['filterlist']) do
-              filterlist = filterlist..'*'..i..'* - _'..check_markdown(k)..'_\n'
+              filterlist = filterlist..'*'..i..'* - _'..k..'_\n'
              i = i + 1
          end
      return filterlist
