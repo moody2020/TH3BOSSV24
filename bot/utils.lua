@@ -250,9 +250,7 @@ function download_to_file(url, file_name)
   if code ~= 200 then return nil end
 
   file_name = file_name or get_http_file_name(url, headers)
-
-  local file_path = "data/"..file_name
-  -- print("Saved to: "..file_path)
+  print("Saved to: "..file_name)
 	-- uncomment if needed
   file = io.open(file_name, "w+")
   file:write(table.concat(respbody))
@@ -777,7 +775,7 @@ end
    message = '_🚸┇  قائمه المحظورين عام :_\n'
    
   for k,v in pairs(data['gban_users']) do
-    message = message ..i.. '- '..check_markdown(v)..' ➣ (' ..k.. ') \n'
+    message = message ..i.. '- '..v..' ➣ (' ..k.. ') \n'
    i = i + 1
 end
   return message
