@@ -55,7 +55,7 @@ if data.sender_user_id_ then
 local function ban_cb(arg, data)
     local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
@@ -83,7 +83,7 @@ local function unban_cb(arg, data)
 
     local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
@@ -105,7 +105,7 @@ tdcli_function ({
 local function silent_cb(arg, data)
     local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
@@ -132,7 +132,7 @@ local function unsilent_cb(arg, data)
 
     local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
@@ -152,7 +152,7 @@ tdcli_function ({
 local function gban_cb(arg, data)
     local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
@@ -183,9 +183,9 @@ tdcli_function ({
 local function ungban_cb(arg, data)
     local administration = load_data(_config.moderation.data)
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
-user_name = check_markdown(data.first_name_)
+user_name = data.first_name_
 end
   if not administration['gban_users'] then
     administration['gban_users'] = {}
