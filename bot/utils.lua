@@ -142,7 +142,7 @@ tdcli_function ({
   }, config_owner, {user_id=owner_id})
    end
 end
-    return tdcli.sendMessage(msg.to.id, msg.id, 0, "🚸┇ _تمت ترقية جميع المشرفين على المجموعة وأصبح منشئ المجموعة الآن مالك المجموعة_", 0, "md")
+    return tdcli.sendMessage(msg.to.id, msg.id, 0, "◈￤ _تمت ترقية جميع المشرفين على المجموعة وأصبح منشئ المجموعة الآن مالك المجموعة_", 0, "md")
  end
 tdcli.getChannelMembers(msg.to.id, 0, 'Administrators', 200, config_cb, {chat_id=msg.to.id})
 end
@@ -690,17 +690,17 @@ end
     local i = 1
   if not data[tostring(chat_id)] then
 
-    return '🚸┇*  المجموعه ليست مضافه*'
+    return '◈￤*  المجموعه ليست مضافه*'
    
   end
   -- determine if table is empty
   if next(data[tostring(chat_id)]['banned']) == nil then --fix way
 
-					return "🚸┇*  لايوجد أعضاء محظورين في هذه المجموعه*"
+					return "◈￤*  لايوجد أعضاء محظورين في هذه المجموعه*"
               
 				end
 
-   message = '🚸┇_  قائمه الاعضاء المحظورين :_\n'
+   message = '◈￤_  قائمه الاعضاء المحظورين :_\n'
      
   for k,v in pairs(data[tostring(chat_id)]['banned']) do
     message = message ..i.. '- '..v..' ➣ (' ..k.. ') \n'
@@ -715,16 +715,16 @@ end
     local i = 1
   if not data[tostring(chat_id)] then
 
-    return '🚸┇*  المجموعه ليست مضافه*'
+    return '◈￤*  المجموعه ليست مضافه*'
    
   end
   -- determine if table is empty
   if next(data[tostring(chat_id)]['is_silent_users']) == nil then --fix way
 
-					return "🚸┇*  لايوجد اعضاء مكتومين في هذه المجموعه*"
+					return "◈￤*  لايوجد اعضاء مكتومين في هذه المجموعه*"
              end
 				
-   message = '_🚸┇  قائمه الاعضاء المكتومين :_\n'
+   message = '_◈￤  قائمه الاعضاء المكتومين :_\n'
     
   for k,v in pairs(data[tostring(chat_id)]['is_silent_users']) do
     message = message ..i.. '- '..v..' ➣ (' ..k.. ') \n'
@@ -738,7 +738,7 @@ function whitelist(chat_id)
     local data = load_data(_config.moderation.data)
     local i = 1
   if not data[tostring(chat_id)] then
-    return '🚸┇*  المجموعه ليست مضافه*'
+    return '◈￤*  المجموعه ليست مضافه*'
    
   end
   if not data[tostring(chat_id)]['whitelist'] then
@@ -748,11 +748,11 @@ function whitelist(chat_id)
   -- determine if table is empty
   if next(data[tostring(chat_id)]['whitelist']) == nil then --fix way
 
-     return "🚸┇*  لايوجد اعضاء مميزين ضمن القائمه في هذه المجموعه*"
+     return "◈￤*  لايوجد اعضاء مميزين ضمن القائمه في هذه المجموعه*"
              
 				end
 
-   message = '_🚸┇  قائمه الاعضاء المميزين :_\n'
+   message = '_◈￤  قائمه الاعضاء المميزين :_\n'
     
   for k,v in pairs(data[tostring(chat_id)]['whitelist']) do
     message = message ..i.. '- '..v..' ➣ (' ..k.. ') \n'
@@ -770,9 +770,9 @@ end
     save_data(_config.moderation.data, data)
   end
   if next(data['gban_users']) == nil then --fix way
-					return "🚸┇*  لايوجد اعضاء محظورين عام*"
+					return "◈￤*  لايوجد اعضاء محظورين عام*"
 				end
-   message = '_🚸┇  قائمه المحظورين عام :_\n'
+   message = '_◈￤  قائمه المحظورين عام :_\n'
    
   for k,v in pairs(data['gban_users']) do
     message = message ..i.. '- '..v..' ➣ (' ..k.. ') \n'
@@ -790,13 +790,13 @@ end
     end
   if not data[tostring(msg.chat_id_)] then
 
-    return '🚸┇*  المجموعه ليست مضافه*'
+    return '◈￤*  المجموعه ليست مضافه*'
    
   end
   -- determine if table is empty
   if next(data[tostring(msg.chat_id_)]['filterlist']) == nil then --fix way
 
-    return "_🚸┇  قائمه الكلمات الممنوعه فارغه_"
+    return "_◈￤  قائمه الكلمات الممنوعه فارغه_"
      
   end
   if not data[tostring(msg.chat_id_)]['filterlist'] then
@@ -804,7 +804,7 @@ end
     save_data(_config.moderation.data, data)
     end
 
-       filterlist = '_🚸┇  قائمه الكلمات الممنوعه :_\n'
+       filterlist = '_◈￤  قائمه الكلمات الممنوعه :_\n'
     
  local i = 1
    for k,v in pairs(data[tostring(msg.chat_id_)]['filterlist']) do
