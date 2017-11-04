@@ -1,5 +1,5 @@
 local function run(msg, matches)
-	if not is_mod(msg) then return "🚸┇ للاداريين فقط 🎖" end
+	if not is_mod(msg) then return "◈￤ للاداريين فقط 🎖" end
 if matches[1]=="زخرف" then
 
 	if not matches[2] then
@@ -8,7 +8,7 @@ if matches[1]=="زخرف" then
 		return "متاح لك 20 حرف انكليزي فقط لايمكنك وضع حروف اكثر ❤️😐\n"
 	end 
 		if matches[2]:match("[\216-\219][\128-\191]") then
-		return "🚸┇ هذا الامر لزخرفه الانكلش فقط ."
+		return "◈￤ هذا الامر لزخرفه الانكلش فقط ."
 		end
 		
 	local font_base = "A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,0,9,8,7,6,5,4,3,2,1,.,_"
@@ -107,7 +107,7 @@ if matches[1]=="زخرف" then
 
 		table.insert(result, text)
 	end
-		local result_text = "🚸┇ زخرفة كلمة :  "..matches[2].."\n🚸┇ تطبيق اكثر من "..tostring(#fonts).." نوع من الخطوط : \n🃏〰〰〰〰〰〰〰〰〰🃏\n\n"
+		local result_text = "◈￤ زخرفة كلمة :  "..matches[2].."\n◈￤ تطبيق اكثر من "..tostring(#fonts).." نوع من الخطوط : \n🃏〰〰〰〰〰〰〰〰〰🃏\n\n"
 	a=0
 	for v=1,#result do
 		a=a+1
@@ -123,10 +123,10 @@ if matches[1]=="زخرف" then
 		return "بعد هذا الأمر، ضع مسافه واكتب الكلمه المراد زخرفتها بالعربي فقط 🌑☔️"
 	end
 	if string.len(matches[2]) > 44 then
-		return "🚸┇ الحد الأقصى المسموح به 40 حرفاالأحرف الإنجليزية والأرقام"
+		return "◈￤ الحد الأقصى المسموح به 40 حرفاالأحرف الإنجليزية والأرقام"
 	end
 		if not matches[2]:match("[\216-\219][\128-\191]") then
-		return "🚸┇ هذا الامر لزخرفه العربي فقط ."
+		return "◈￤ هذا الامر لزخرفه العربي فقط ."
 		end
 	local font_base = "ء,ئ,ا,ب,ت,ث,ج,ح,خ,د,ذ,ر,ز,س,ش,ص,ض,ط,ظ,ع,غ,ق,ف,ك,ل,م,ن,ه,و,ي,0,9,8,7,6,5,4,3,2,1,.,_"
 	local font_hash = "ي,و,ه,ن,م,ل,ك,ف,ق,غ,ع,ظ,ط,ض,ص,ش,س,ز,ر,ذ,د,خ,ح,ج,ث,ت,ب,ا,ئ,ء,0,1,2,3,4,5,6,7,8,9,.,_"
@@ -196,7 +196,7 @@ if matches[1]=="زخرف" then
 
 		table.insert(result, text)
 	end
-	local result_text = "🚸┇ زخرفة : "..matches[2].."\n🚸┇ تصميم "..tostring(#fonts).." خط :\n🃏〰〰〰〰〰〰〰〰〰🃏\n"
+	local result_text = "◈￤ زخرفة : "..matches[2].."\n◈￤ تصميم "..tostring(#fonts).." خط :\n🃏〰〰〰〰〰〰〰〰〰🃏\n"
 	a=0
 	for v=1,#result do
 		a=a+1
