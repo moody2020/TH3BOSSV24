@@ -108,7 +108,7 @@ end
 	sudouser = check_markdown(sudouser),
 	bot_name = botname,
     moderation = {data = './data/moderation.json'},
-	info_text = "🚸┇ ᗯEᒪᑕOᗰE ᗰY ᗪEᗩᖇ\n\n🚸┇ SᑌᗪO : @TH3BOSS \n\n🚸┇ TH3BOSS ↭ Final Version 22 \n\n🚸┇ ᑕᕼ ↭ @llDEV1ll\n\n",
+	info_text = "◈￤ مرحبا بك في سورس الزعيم \n\n◈￤ الاصدار ↭ 23 \n\n◈￤للاستفسار راسلني ↭  @TH3BOSS \n\n◈￤للاستفسار راسلني ↭  @TH3BOSSBOT\n\n◈￤للاستفسار راسلني ↭  @lBOSSl \n\n◈￤قناه السورس ↭  @llDEV1ll",
 
   }
   file = io.open("TH3BOSS.sh", "w")
@@ -141,7 +141,7 @@ file:close()
 	serialize_to_file(config, './data/config.lua')
 	print ('saved config into config.lua')
 	if token=="" then
-print("🚸┇ لم تقم بوضع التوكن يجب عليك وضع التوكن في ملف البوت ليعمل السورس\n")
+print("◈￤ لم تقم بوضع التوكن يجب عليك وضع التوكن في ملف البوت ليعمل السورس\n")
 os.execute(' rm -fr data/config.lua && rm -fr ./launch.sh ')
 print ('\n\n\n you did not Enter token \n i delete file launch and config.lua \n\n\n now Run file instal.sh\n ')
 return
