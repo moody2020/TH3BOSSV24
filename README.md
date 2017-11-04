@@ -54,4 +54,6 @@ chmod +x install.sh
   
   [TH3BOSS](https://telegram.me/LBOSSL) <br>
   
-  [CH - TH3BOSS](https://telegram.me/LLDEV1LL) 
+  [CH - TH3BOSS](https://telegram.me/LLDEV1LL) <br>
+  
+  [Special thanks to Omar Alsaray](https://telegram.me/blcon)<br>
