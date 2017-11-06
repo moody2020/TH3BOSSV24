@@ -599,10 +599,10 @@ end
 -- حصانه التحقق من العضو ⇠
 
 local lock_brod = data[tostring(target)]["settings"]["lock_brod"] 
-if lock_brod == "🔓" then
+if lock_brod == "no" then
 return '◈￤ _اذاعه المطورين بالتاكيد تم تعطيله_\n◈￤_ الرتبه : '..ioer..'_'
 else
-data[tostring(target)]["settings"]["lock_brod"] = "🔓"
+data[tostring(target)]["settings"]["lock_brod"] = "no"
 save_data(_config.moderation.data, data) 
 return '◈￤ _تم تعطيل اذاعه المطورين_\n◈￤_ الرتبه : '..ioer..'_'
 end
@@ -623,10 +623,10 @@ end
 -- حصانه التحقق من العضو ⇠
 
 local lock_brod = data[tostring(target)]["settings"]["lock_brod"]
-if lock_brod == "🔒" then
+if lock_brod == "yes" then
 return '◈￤ _اذاعه المطورين بالتاكيد تم تفعيله_\n◈￤_ الرتبه : '..ioer..'_'
 else 
-data[tostring(target)]["settings"]["lock_brod"] = "🔒"
+data[tostring(target)]["settings"]["lock_brod"] = "yes"
 save_data(_config.moderation.data, data) 
 return '◈￤ _تم تفعيل اذاعه المطورين_\n◈￤_ الرتبه : '..ioer..'_'
 end
@@ -3398,7 +3398,7 @@ if matches[2] == "الردود" then
 return unlock_replay(msg, data, target)
 end
 if matches[2] == "الاذاعه" and is_sudo(msg) then
-redis:set("lock_brod","🔒")
+redis:set("lock_brod","yes")
 return unlock_brod(msg, data, target)
 end
 if matches[2] == "الايدي" then
@@ -3440,7 +3440,7 @@ if matches[2] == "الردود" then
 return lock_replay(msg, data, target)
 end
 if matches[2] == "الاذاعه" and is_sudo(msg) then
-redis:set("lock_brod","🔓")
+redis:set("lock_brod","no")
 return lock_brod(msg, data, target)
 end
 
