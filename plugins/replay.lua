@@ -45,7 +45,11 @@ return [[◈￤ مرحبا انا بوت اختصاصي  🎖
 ◈￤ مطور البوت : ]]..sudouser..[[
 👨🏽‍🔧]]
 end
+if (msg.to.type == "pv") and not is_sudo(msg) then
+tdcli.sendMessage(msg.to.id, 0, 1, "◈￤ تم ارسال رسالتك الى المطور\n◈￤ـ "..sudouser.."\n◈￤ سوف ارد عليك في اقرب وقت\n👨🏻‍🔧", 1, '')
+tdcli.forwardMessages(SUDO,msg.to.id, {[0] = msg.id}, 0)
 
+end
 
 
 ---------------[End Function data] -----------------------
@@ -247,17 +251,7 @@ rank = 'مجرد عضو 😹'
 end
 return '◈￤ رتبتك : '..rank
 end
-------------[lock and unlock reply in pv ]---------
 
-if (msg.to.type == "pv") and not is_sudo(msg) then
-tdcli.sendMessage(msg.to.id, 0, 1, " ◈￤ TEAM TH3BOSS V22 \n\n◈￤ CH - TH3BOSS : @llDEV1ll \n\n ◈￤DEV : @TH3BOSS\n ◈￤DEV BOT : @TH3BOSSBOT", 1, 'html')
-local pvmsg ="◈￤ ألاسم :"..name_user.."\n ◈￤ الايدي : ["..msg.from.id.."]\n ◈￤ ألمعرف : ["..usernamex.."]\n ◈￤ الرسالة: \n\n"..msg.text
-
-tdcli.sendMessage(SUDO, 0, 1, pvmsg, 1, 'md')
-
-end
-
---------------------------------------
 
 if lock_reply =="🔒" and  data[tostring(msg.to.id)]    then
 
