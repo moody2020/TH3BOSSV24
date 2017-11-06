@@ -418,8 +418,11 @@ end
 
 
 if matches[1] == 'اذاعه عام' and is_sudo(msg) then		
-if (lock_brod == "no" or tonumber(msg.from.id) ~= tonumber(SUDO)) then return "هذا الاوامر للمطور الاساسي فقط ◈￤" end
-
+if (not redis:get('lock_brod') or redis:get('lock_brod')=="no" ) then 
+if tonumber(msg.from.id) ~= tonumber(SUDO) then
+return "☔️هذا الاوامر للمطور الاساسي فقط ◈￤" 
+end
+end
 local list = redis:smembers('users')
 for i = 1, #list do
 tdcli.sendMessage(list[i], 0, 0, matches[2], 0)			
@@ -450,8 +453,11 @@ tdcli.sendMessage(msg.to.id, 0, 0,'◈￤ تم اذاعه الى `'..redis:scard
 end
 
 if matches[1] == 'اذاعه' and is_sudo(msg) then		
-if (lock_brod == "no" or tonumber(msg.from.id) ~= tonumber(SUDO)) then return "☔️هذا الاوامر للمطور الاساسي فقط ◈￤" end
-
+if (not redis:get('lock_brod') or redis:get('lock_brod')=="no" ) then 
+if tonumber(msg.from.id) ~= tonumber(SUDO) then
+return "☔️هذا الاوامر للمطور الاساسي فقط ◈￤" 
+end
+end
 local data = load_data(_config.moderation.data)		
 local bc = matches[2]			
 local i =1 
@@ -521,25 +527,6 @@ end
 end, nil)
 end
 
-if is_sudo(msg) and  matches[1] == "راسل" then
-if matches[2] and string.match(matches[2], '@[%a%d]') then
-local function rasll (extra, result, success)
-if result.id_ then
-if result.type_.user_.username_ then
-user_name = '@'..check_markdown(result.type_.user_.username_)
-else
-user_name = check_markdown(result.first_name_)
-end
-tdcli.sendMessage(msg.chat_id_, 0, 1, '◈￤ تم ارسال الرسالة لـ '..user_name..' 👍🏿👮🏻‍♀️' , 1, 'md')
-tdcli.sendMessage(result.id_, 0, 1, extra.msgx, 1, 'html')
-end
-end
-return   tdcli_function ({ID = "SearchPublicChat",username_ = matches[2]}, rasll, {msgx=matches[3]})
-elseif matches[2] and string.match(matches[2], '^%d+$') then
-tdcli.sendMessage(msg.to.id, 0, 1, '◈￤ تم ارسال الرسالة لـ ['..matches[2]..'] 👍🏿👮🏻‍♀️' , 1, 'html')
-tdcli.sendMessage(matches[2], 0, 1, matches[3], 1, 'html')
-end
-end
 
 
 if matches[1] == "مواليدي" then
@@ -567,7 +554,7 @@ return '📫￤ عدد رسائلك المرسله : `'..msgs..'` رساله \n\
 end
 if matches[1]:lower() == 'معلوماتي' or matches[1]:lower() == 'موقعي'  then
 if msg.from.first_name then
-if msg.from.username then username = '@'..msg.from.username
+if msg.from.username then username = '@'..check_markdown(msg.from.username)
 else username = '<i>ما مسوي  😹💔</i>'
 end
 if is_sudo(msg) then rank = 'المطور مالتي 😻'
@@ -577,8 +564,8 @@ elseif is_mod(msg) then rank = 'ادمن في البوت 😺'
 elseif is_whitelist(msg.from.id,msg.to.id)  then rank = 'عضو مميز 🎖'
 else rank = 'مجرد عضو 😹'
 end
-local text = '*👨🏽‍🔧¦ اهـلا بـك عزيزي :\n\n◈￤ الاسم الاول :* _'..msg.from.first_name
-..'_\n*◈￤ الاسم الثاني :* _'..(msg.from.last_name or "---")
+local text = '*👨🏽‍🔧¦ اهـلا بـك عزيزي :\n\n◈￤ الاسم الاول :* _'..check_markdown(msg.from.first_name)
+..'_\n*◈￤ الاسم الثاني :* _'..(check_markdown(msg.from.last_name) or "---")
 ..'_\n*◈￤ المعرف :* '..username
 ..'\n*◈￤ الايدي :* ( `'..msg.from.id
 ..'` )\n*◈￤ ايدي الكروب :* ( `'..msg.to.id
