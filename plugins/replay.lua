@@ -177,7 +177,7 @@ end
 
 end
 if w == 'الردود العامه' then
-if next(data[tostring(msg.to.id)]['replay_all']) ==nil then
+if next(data['replay_all']) ==nil then
 return '◈￤ لايوجد ردود مضافه حاليا ❗️'
 else
 local i = 1
@@ -640,7 +640,7 @@ patterns = {
 "^("..bot_name.." عفط)(.*)$", 
 "^("..bot_name.." اتفل)(.*)$", 
 "^("..bot_name.." رزله)(.*)$", 
-"^("..bot_name.." بوس)(.*)$",
+"^("..bot_name.." بوس)(.*)$", 
 "^(بوس)(.*)$", 
 "^(تحب) (.*)$",
 "^("..bot_name..") (.*)$",
