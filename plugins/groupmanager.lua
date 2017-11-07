@@ -479,7 +479,7 @@ if not tonumber(arg.user_id) then return false end
 if data.id_ then
 if data.first_name_ then
 if data.username_ then
-user_name = '@'..check_markdown(data.username_)
+user_name = '@'..data.username_
 else
 user_name = check_markdown(data.first_name_)
 end
