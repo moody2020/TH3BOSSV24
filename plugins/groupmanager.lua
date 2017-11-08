@@ -404,13 +404,13 @@ save_data(_config.moderation.data, administration)
 end
 if not administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] then
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '◈￤ _العضو ⇠_ ['..user_name..']\n◈￤ _ الايدي ⇠ _*['..data.id_..']*\n◈￤ انه بالتأكيد ليس من عضو مميز ☑️ _', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '◈￤ _العضو ⇠_ ['..user_name..']\n◈￤ _ الايدي ⇠ _*['..data.id_..']*\n◈￤ _انه بالتأكيد ليس من عضو مميز ☑️ _', 0, "md")
 
 end
 administration[tostring(arg.chat_id)]['whitelist'][tostring(data.id_)] = nil
 save_data(_config.moderation.data, administration)
 
-return tdcli.sendMessage(arg.chat_id, "", 0, '◈￤ _العضو ⇠_ ['..user_name..'] \n◈￤ _الايدي ⇠_ *['..data.id_..']*\n◈￤ تمت تنزيله من عضو مميز ☑️_', 0, "md")
+return tdcli.sendMessage(arg.chat_id, "", 0, '◈￤ _العضو ⇠_ ['..user_name..'] \n◈￤ _الايدي ⇠_ *['..data.id_..']*\n◈￤_ تمت تنزيله من عضو مميز ☑️_', 0, "md")
 
 end
 if cmd == "setowner" then
