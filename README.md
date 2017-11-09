@@ -56,4 +56,4 @@ chmod +x install.sh
   
   [CH - TH3BOSS](https://telegram.me/LLDEV1LL) <br>
   
-  [Support Group](https://telegram.me/lBOSSl)<br>
+  [Group Support](https://telegram.me/lBOSSl)<br>
