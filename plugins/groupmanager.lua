@@ -3398,6 +3398,9 @@ if matches[2] == "الردود" then
 return unlock_replay(msg, data, target)
 end
 if matches[2] == "الاذاعه" and is_sudo(msg) then
+if tonumber(msg.from.id) ~= tonumber(SUDO) then
+return "◈￤هذا الاوامر للمطور الاساسي فقط " 
+end
 redis:set("lock_brod","yes")
 return unlock_brod(msg, data, target)
 end
@@ -3440,6 +3443,9 @@ if matches[2] == "الردود" then
 return lock_replay(msg, data, target)
 end
 if matches[2] == "الاذاعه" and is_sudo(msg) then
+if tonumber(msg.from.id) ~= tonumber(SUDO) then
+return "◈￤هذا الاوامر للمطور الاساسي فقط " 
+end
 redis:set("lock_brod","no")
 return lock_brod(msg, data, target)
 end
