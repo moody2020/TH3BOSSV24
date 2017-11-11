@@ -85,20 +85,17 @@ end
 
 local function moody(msg, matches) 
   if matches[1] == '/p' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
-     if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط ◈￤" end
-
+  
     return list_all_plugins() 
   end 
   if matches[1] == '+' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
-     if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط ◈￤" end
-
+  
     local plugin_name = matches[2] 
     print("enable: "..matches[2]) 
     return enable_plugin(plugin_name) 
   end 
   if matches[1] == '-' and is_sudo(msg) then --after changed to moderator mode, set only sudo 
-     if tonumber(msg.from.id) ~= tonumber(SUDO) then return "️هذا الاوامر للمطور الاساسي فقط ◈￤" end
-
+  
     if matches[2] == 'plugins'  then 
        return '🛠عود انته لوتي تريد تعطل اوامر التحكم بالملفات ◈￤' 
     end 
@@ -112,7 +109,6 @@ local function moody(msg, matches)
   end 
   ----------------
    if (matches[1] == "sp" or matches[1] == "جلب ملف") and is_sudo(msg) then 
-   if tonumber(msg.from.id) ~= tonumber(SUDO) then return "☔️هذا الاوامر للمطور الاساسي فقط ◈￤" end
      if (matches[2]=="الكل" or matches[2]=="all") then
    tdcli.sendMessage(msg.to.id, msg.id, 1, 'انتضر قليلا سوف يتم ارسالك كل الملفات📢', 1, 'html')
 
@@ -133,7 +129,6 @@ end
 end
 
 if (matches[1] == "dp" or matches[1] == "حذف ملف")  and matches[2] and is_sudo(msg) then 
-     if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط ◈￤" end
 
     disable_plugin(matches[2]) 
     if disable_plugin(matches[2]) == '◈￤ لا يوجد ملف بهذا الاسم ‼️ \n\n' then
@@ -145,13 +140,14 @@ if (matches[1] == "dp" or matches[1] == "حذف ملف")  and matches[2] and is_
 end 
 
 if matches[1]:lower() == "ssp" and matches[2] and matches[3] then
-if tonumber(msg.from.id) ~= tonumber(SUDO) then return "️هذا الاوامر للمطور الاساسي فقط ◈￤" end
+
 local send_file = "./"..matches[2].."/"..matches[3]
 tdcli.sendDocument(msg.chat_id_, msg.id_,0, 1, nil, send_file, '◈￤ الملف مقدم من قناه  الـزعـيـم ◈￤ \n◈￤ تابع قناه السورس @lBOSSl\n👨🏽‍🔧', dl_cb, nil)
 end
 
 if (matches[1] == 'رفع النسخه الاحتياطيه' or matches[1] == 'up') and is_sudo(msg) then
-if tonumber(msg.from.id) ~= tonumber(SUDO) then return "️هذا الاوامر للمطور الاساسي فقط ◈￤" end
+     if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط ◈￤" end
+
 if tonumber(msg.reply_to_message_id_) ~= 0  then
 function get_filemsg(arg, data)
 function get_fileinfo(arg,data)
@@ -214,7 +210,8 @@ end
    
 end
 if (matches[1] == 'نسخه احتياطيه' or matches[1] == 'bu') and is_sudo(msg) then
-if (tonumber(msg.from.id) ~= tonumber(SUDO) or tonumber(msg.from.id) ~= 60809019 ) then return "☔️هذا الاوامر للمطور الاساسي فقط ◈￤" end
+     if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط ◈￤" end
+
 i = 1
 local data = load_data(_config.moderation.data)
 local groups = 'groups'
@@ -242,8 +239,7 @@ return "◈￤ اصدار السورس : "..moody
 end 
 
 if (matches[1] == 'تحديث السورس' or matches[1] == 'update') and is_sudo(msg) then
-if (tonumber(msg.from.id) ~= tonumber(SUDO) or tonumber(msg.from.id) ~= 60809019 ) then return "☔️هذا الاوامر للمطور الاساسي فقط ◈￤" end
-
+     if tonumber(msg.from.id) ~= tonumber(SUDO) then return "هذا الاوامر للمطور الاساسي فقط ◈￤" end
 
 tdcli.sendMessage(msg.to.id, msg.id_,1, '🛠 جاري تحديث السورس ...', 1, 'html')
 
@@ -293,4 +289,4 @@ return {
   --privileged = true 
 } 
 
-end 
+end
