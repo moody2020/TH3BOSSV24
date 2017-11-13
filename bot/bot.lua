@@ -108,7 +108,7 @@ end
 	sudouser = check_markdown(sudouser),
 	bot_name = botname,
     moderation = {data = './data/moderation.json'},
-	info_text = "◈￤ مرحبا بك في سورس الزعيم \n\n◈￤ الاصدار ↭ 23 \n\n◈￤للاستفسار راسلني ↭  @TH3BOSS \n\n◈￤للاستفسار راسلني ↭  @TH3BOSSBOT\n\n◈￤للاستفسار راسلني ↭  @lBOSSl \n\n◈￤قناه السورس ↭  @llDEV1ll",
+	info_text = "◈￤ مرحبا بك في سورس الزعيم \n\n◈￤ الاصدار ↭ 23\n\n◈￤رابط السورس \n\n◈￤ https://github.com/moody2020/TH3BOSS  \n\n◈￤للاستفسار راسلني ↭ @TH3BOSS \n\n◈￤للاستفسار راسلني ↭ @TH3BOSSBOT\n\n◈￤للاستفسار راسلني ↭ @lBOSSl \n\n◈￤قناه السورس ↭ @llDEV1ll",
 
   }
   file = io.open("TH3BOSS.sh", "w")
