@@ -100,8 +100,8 @@ end
     "plugins",
     "tools",
 	"replay",
-	"zhrf",
-
+"zhrf",
+"dell",
 	},
     sudo_users = {{SUDO,check_markdown(sudouser)}},
 	SUDO = SUDO,
