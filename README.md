@@ -1,4 +1,4 @@
-# <p align="center" style="color:#cb3349" > [<< TH3BOSS >> V23 (Final Version)](https://telegram.me/llDEV1ll)
+# <p align="center" style="color:#cb3349" > [<< TH3BOSS >> V24 (Final Version)](https://telegram.me/llDEV1ll)
 
  <p align="center" style="color: #14635c;" > بوت الزعيم الاقوى والاحدث لحمايه المجموعات في التلكرام
 <p align="center"><img src="زعيم.jpg" alt="بوت زعيم" title="بوت زعيم">
@@ -13,7 +13,7 @@ git clone https://github.com/moody2020/TH3BOSS.git && cd TH3BOSS && chmod +x ins
 
 <br>
 
-# <p align="center" style="color: #14635c;" >  تنصيب سورس الزعيم الاصدار 23 والاخير
+# <p align="center" style="color: #14635c;" >  تنصيب سورس الزعيم الاصدار 24 والاخير
 
 ◈￤  افتـح ترمنـــأل وخلي هاي
 ```sh
