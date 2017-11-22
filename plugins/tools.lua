@@ -1,4 +1,6 @@
---Begin Tools.lua :)
+-- BY MOHAMMED HISHAM
+-- BY @TH3BOSS
+-- BY @lBOSSl
 
 function exi_files(cpath)
     local files = {}
@@ -398,6 +400,25 @@ username_ = matches[2]
 end
 end
 end
+if is_sudo(msg) and  matches[1] == "راسل" then
+if matches[2] and string.match(matches[2], '@[%a%d]') then
+local function rasll (extra, result, success)
+if result.id_ then
+if result.type_.user_.username_ then
+user_name = '@'..check_markdown(result.type_.user_.username_)
+else
+user_name = check_markdown(result.first_name_)
+end
+tdcli.sendMessage(msg.chat_id_, 0, 1, '◈￤ تم ارسال الرسالة لـ '..user_name..' 👍🏿👮🏻‍♀️' , 1, 'md')
+tdcli.sendMessage(result.id_, 0, 1, extra.msgx, 1, 'html')
+end
+end
+return   tdcli_function ({ID = "SearchPublicChat",username_ = matches[2]}, rasll, {msgx=matches[3]})
+elseif matches[2] and string.match(matches[2], '^%d+$') then
+tdcli.sendMessage(msg.to.id, 0, 1, '◈￤ تم ارسال الرسالة لـ ['..matches[2]..'] 👍🏿👮🏻‍♀️' , 1, 'html')
+tdcli.sendMessage(matches[2], 0, 1, matches[3], 1, 'html')
+end
+end
 
 
 if msg.to.type == 'channel' or msg.to.type == 'chat' then
@@ -499,7 +520,7 @@ tdcli.sendMessage(matches[2], 0, 1, "تم تعطيل البوت من قبل ال
 tdcli.changeChatMemberStatus(matches[2], our_id, 'Left', dl_cb, nil)
 return '_المجموعه_ *'..matches[2]..'* _تم تعطيلها_'
 end
-if matches[1] == '=' then
+if matches[1] == 'المطور' then
 tdcli.sendMessage(msg.to.id, msg.id, 1, _config.info_text, 1, 'html')
 end
 if matches[1] == 'المدراء' and is_sudo(msg) then
@@ -529,25 +550,6 @@ end
 end, nil)
 end
 
-if is_sudo(msg) and  matches[1] == "راسل" then
-if matches[2] and string.match(matches[2], '@[%a%d]') then
-local function rasll (extra, result, success)
-if result.id_ then
-if result.type_.user_.username_ then
-user_name = '@'..check_markdown(result.type_.user_.username_)
-else
-user_name = check_markdown(result.first_name_)
-end
-tdcli.sendMessage(msg.chat_id_, 0, 1, '◈￤ تم ارسال الرسالة لـ '..user_name..' 👍🏿👮🏻‍♀️' , 1, 'md')
-tdcli.sendMessage(result.id_, 0, 1, extra.msgx, 1, 'html')
-end
-end
-return   tdcli_function ({ID = "SearchPublicChat",username_ = matches[2]}, rasll, {msgx=matches[3]})
-elseif matches[2] and string.match(matches[2], '^%d+$') then
-tdcli.sendMessage(msg.to.id, 0, 1, '◈￤ تم ارسال الرسالة لـ ['..matches[2]..'] 👍🏿👮🏻‍♀️' , 1, 'html')
-tdcli.sendMessage(matches[2], 0, 1, matches[3], 1, 'html')
-end
-end
 
 
 if matches[1] == "مواليدي" then
@@ -830,20 +832,6 @@ end
 
 
 
-if matches[1] == "المطور" then
-local text = [[
-◈￤- اهـلا بـك عـزيـزي ❤️
-
-◈￤- بوت حماية المجموعات الافضل 
-
-◈￤- لتفعيل البوت في مجموعتك راسل 
-
-◈￤- للاستفسار راسل المطور
-
-◈￤- ᗪEᐯ || ⇠  ]]..sudouser
-return tdcli.sendMessage(msg.to.id, msg.id, 1, text, 1, 'md')
-
-end
 
 end
 
@@ -862,14 +850,13 @@ patterns = {
 "^(م2)$", 
 "^(م3)$", 
 "^(م4)$", 
-"^(المطور)$", 
 "^(الرتبه)$", 
 "^(رفع مطور)$", 
 "^(تنزيل مطور)$",
 "^(المطورين)$",
 "^(رفع مطور) (.*)$",
 "^(تنزيل مطور) (.*)$",
-"^(=)$",
+"^(المطور)$",
 "^(قائمه المجموعات)$",
 "^(المجموعات)$",
 "^(رسائلي)$",
