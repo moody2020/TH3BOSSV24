@@ -1,4 +1,6 @@
--- @TH3BOSS
+-- BY MOHAMMED HISHAM
+-- BY @TH3BOSS
+-- BY @lBOSSl
 tdcli = dofile('./tg/tdcli.lua')
 serpent = (loadfile "./libs/serpent.lua")()
 feedparser = (loadfile "./libs/feedparser.lua")()
