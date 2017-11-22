@@ -111,7 +111,7 @@ end
 	sudouser = check_markdown(sudouser),
 	bot_name = botname,
     moderation = {data = './data/moderation.json'},
-	info_text = "◈￤welcome Dear\n\n◈￤Basic Developer : @TH3BOSS \n\n◈￤TH3BOSS \n\n◈￤Latest Version 24 \n\n◈￤Channel Developer : @llDEV1ll \n\n◈￤Developer of bot : "..check_markdown(sudouser).."\n\n",
+	info_text = "◈￤welcome Dear\n\n◈￤Basic Developer : @TH3BOSS \n\n◈￤TH3BOSS \n\n◈￤Final Version 24 \n\n◈￤Channel Developer : @llDEV1ll \n\n◈￤Developer of bot : "..check_markdown(sudouser).."\n\n",
 
   }
   file = io.open("TH3BOSS.sh", "w")
