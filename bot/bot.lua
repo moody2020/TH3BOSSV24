@@ -1,6 +1,7 @@
-— BY MOHAMMED HISHAM
-— BY @TH3BOSS
-— BY @lBOSSl
+-- BY MOHAMMED HISHAM
+-- BY @TH3BOSS
+-- BY @lBOSSl
+
 tdcli = dofile('./tg/tdcli.lua')
 serpent = (loadfile "./libs/serpent.lua")()
 feedparser = (loadfile "./libs/feedparser.lua")()
@@ -26,7 +27,7 @@ function do_notify (user, msg)
 end
 
 function dl_cb (arg, data)
-	— vardump(data)
+	-- vardump(data)
 end
 
 function vardump(value)
@@ -111,7 +112,7 @@ end
 	sudouser = check_markdown(sudouser),
 	bot_name = botname,
     moderation = {data = './data/moderation.json'},
-	info_text = "◈￤welcome Dear\n\n◈￤Basic Developer : @TH3BOSS \n\n◈￤TH3BOSS \n\n◈￤Final Version 24 \n\n◈￤Channel Developer : @llDEV1ll \n\n◈￤Developer of bot : "..sudouser.."\n\n",
+	info_text = "◈￤welcome Dear\n\n◈￤Basic Developer : @TH3BOSS \n\n◈￤TH3BOSS \n\n◈￤Final Version 24 \n\n◈￤Channel Developer : @llDEV1ll \n\n◈￤Developer of bot : "..check_markdown(sudouser).."\n\n",
 
   }
   file = io.open("TH3BOSS.sh", "w")
@@ -132,7 +133,7 @@ COUNTER=1
 while(true) do
 
 curl "https://api.telegram.org/bot"$token"/sendmessage" -F
-./tg/tgcli -s ./bot/bot.lua $@ —bot=$token
+./tg/tgcli -s ./bot/bot.lua $@ --bot=$token
 
 let COUNTER=COUNTER+1 
 done
@@ -151,12 +152,12 @@ return
 end
 end
 
-— Returns the config from config.lua file.
-— If file doesn't exist, create it.
+-- Returns the config from config.lua file.
+-- If file doesn't exist, create it.
 
 function load_config( )
 	local f = io.open('./data/config.lua', "r")
-  — If config.lua doesn't exist
+  -- If config.lua doesn't exist
 	if not f then
 		print ("Created new config file: ./data/config.lua")
 		create_config()
@@ -204,7 +205,7 @@ load_plugins()
 
 function msg_valid(msg)
 	 if tonumber(msg.date_) < (tonumber(os.time()) - 60) then
-        print('\27[36m>>— OLD MESSAGE —<<\27[39m')
+        print('\27[36m>>-- OLD MESSAGE --<<\27[39m')
 		 return false
 	 end
 
@@ -231,12 +232,12 @@ function match_pattern(pattern, text, lower_case)
 	end
 end
 
-— Check if plugin is on _config.disabled_plugin_on_chat table
+-- Check if plugin is on _config.disabled_plugin_on_chat table
 local function is_plugin_disabled_on_chat(plugin_name, receiver)
   local disabled_chats = _config.disabled_plugin_on_chat
-  — Table exists and chat has disabled plugins
+  -- Table exists and chat has disabled plugins
   if disabled_chats and disabled_chats[receiver] then
-    — Checks if plugin is disabled on this chat
+    -- Checks if plugin is disabled on this chat
     for disabled_plugin,disabled in pairs(disabled_chats[receiver]) do
       if disabled_plugin == plugin_name and disabled then
         local warning = '_Plugin_ *'..check_markdown(disabled_plugin)..'* _is disabled on this chat_'
@@ -251,11 +252,11 @@ end
 
 function match_plugin(plugin, plugin_name, msg)
 	if plugin.pre_process then
-        —If plugin is for privileged users only
+        --If plugin is for privileged users only
 		local result = plugin.pre_process(msg)
 		if result then
 			print("pre process: ", plugin_name)
-        — tdcli.sendMessage(msg.chat_id_, "", 0, result, 0, "md")
+        -- tdcli.sendMessage(msg.chat_id_, "", 0, result, 0, "md")
 		end
 	end
 	for k, pattern in pairs(plugin.patterns) do
