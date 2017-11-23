@@ -1,7 +1,6 @@
 -- BY MOHAMMED HISHAM
 -- BY @TH3BOSS
 -- BY @lBOSSl
-
 tdcli = dofile('./tg/tdcli.lua')
 serpent = (loadfile "./libs/serpent.lua")()
 feedparser = (loadfile "./libs/feedparser.lua")()
@@ -112,7 +111,7 @@ end
 	sudouser = check_markdown(sudouser),
 	bot_name = botname,
     moderation = {data = './data/moderation.json'},
-	info_text = "◈￤welcome Dear\n\n◈￤Basic Developer : @TH3BOSS \n\n◈￤TH3BOSS \n\n◈￤Final Version 24 \n\n◈￤Channel Developer : @llDEV1ll \n\n◈￤Developer of bot : "..check_markdown(sudouser).."\n\n",
+	info_text = "◈￤welcome Dear\n\n◈￤Basic Developer : @TH3BOSS \n\n◈￤TH3BOSS \n\n◈￤Final Version 24 \n\n◈￤Channel Developer : @llDEV1ll \n\n◈￤Developer of bot : "..sudouser.."\n\n",
 
   }
   file = io.open("TH3BOSS.sh", "w")
