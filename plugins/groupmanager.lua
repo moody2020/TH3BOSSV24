@@ -2231,8 +2231,7 @@ end
 local mute_tgservice = data[tostring(target)]["mutes"]["mute_tgservice"] 
 if mute_tgservice == "🔒" then
 
-return '◈￤ _الاشعارات بالتأكيد تم فتحها_\n◈￤_ الرتبه : '..ioer..'_'
-
+return '◈￤ _الاشعارات بالتأكيد تم قفلها_\n◈￤_ الرتبه : '..ioer..'_'
 
 else
 data[tostring(target)]["mutes"]["mute_tgservice"] = "🔒" 
