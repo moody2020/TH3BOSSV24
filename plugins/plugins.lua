@@ -111,7 +111,6 @@ local function reload_plugins( )
   plugins = {} 
   load_plugins() 
 end 
--- by omer alsaray TEle _ @blcon
 
 local function enable_plugin( plugin_name ) 
   print('checking if '..plugin_name..' exists') 
